@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The R³ Model Blueprint — AH-HA Coaching, LLC</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #fff; color: #1a1a1a; padding: 2rem; max-width: 900px; margin: 0 auto; }
+  .r3-header { text-align: center; margin-bottom: 2rem; }
+  .r3-title { font-size: 26px; font-weight: 500; color: #1a1a1a; margin: 0 0 4px; }
+  .r3-sub { font-size: 13px; color: #666; margin: 0; }
+  .premise { background: #f9f9f9; border-left: 3px solid #854F0B; border-radius: 0 8px 8px 0; padding: 14px 18px; margin-bottom: 2rem; }
+  .premise-title { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #854F0B; margin: 0 0 8px; }
+  .premise-text { font-size: 12px; color: #444; line-height: 1.7; margin: 0 0 8px; }
+  .premise-text:last-child { margin: 0; }
+  .journey-bar { display: flex; align-items: center; justify-content: center; gap: 0; margin: 0 0 2rem; }
+  .journey-start, .journey-end { font-size: 12px; color: #666; padding: 6px 14px; border: 0.5px solid #ddd; border-radius: 8px; white-space: nowrap; }
+  .journey-arrow { flex: 1; height: 1px; background: #ddd; position: relative; max-width: 80px; }
+  .journey-arrow::after { content: ''; position: absolute; right: -4px; top: -3px; border-left: 6px solid #ddd; border-top: 3px solid transparent; border-bottom: 3px solid transparent; }
+  .phases { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-bottom: 1.5rem; }
+  .phase { border-radius: 12px; border: 0.5px solid #ddd; overflow: hidden; cursor: pointer; transition: border-color 0.2s; }
+  .phase:hover { border-color: #999; }
+  .phase.active { border-width: 1.5px; }
+  .phase-header { padding: 12px 14px 10px; }
+  .phase-label { font-size: 10px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 2px; }
+  .phase-name { font-size: 16px; font-weight: 500; color: #1a1a1a; margin: 0 0 4px; }
+  .phase-desc { font-size: 11px; color: #666; margin: 0; line-height: 1.4; }
+  .phase-r { background: #E6F1FB; border-color: #185FA5; }
+  .phase-r .phase-label { color: #185FA5; }
+  .phase-re { background: #F1F8F1; border-color: #2E7D32; }
+  .phase-re .phase-label { color: #2E7D32; }
+  .phase-rv { background: #FAEEDA; border-color: #854F0B; }
+  .phase-rv .phase-label { color: #854F0B; }
+  .phase.active.phase-r { border-color: #0C447C; }
+  .phase.active.phase-re { border-color: #1B5E20; }
+  .phase.active.phase-rv { border-color: #633806; }
+  .rap-rows { border-top: 0.5px solid #ddd; }
+  .rap-row { padding: 8px 14px; border-bottom: 0.5px solid #ddd; cursor: pointer; }
+  .rap-row:last-child { border-bottom: none; }
+  .rap-row:hover { background: rgba(0,0,0,0.02); }
+  .rap-letter { font-size: 13px; font-weight: 500; color: #1a1a1a; margin: 0 0 1px; }
+  .rap-term { font-size: 10px; font-weight: 500; color: #888; margin: 0 0 2px; text-transform: uppercase; letter-spacing: 0.06em; }
+  .rap-detail { display: none; font-size: 11px; color: #555; margin: 6px 0 2px; line-height: 1.6; }
+  .rap-detail.show { display: block; }
+  .rap-detail ul { margin: 6px 0 0 12px; padding: 0; }
+  .rap-detail ul li { margin-bottom: 5px; }
+  .flow-connector { display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 1.5rem; flex-wrap: wrap; }
+  .flow-node { font-size: 11px; color: #666; padding: 4px 10px; border: 0.5px solid #ddd; border-radius: 8px; }
+  .flow-line { flex: 1; height: 1px; background: #ddd; position: relative; max-width: 40px; min-width: 16px; }
+  .flow-line::after { content: ''; position: absolute; right: -4px; top: -3px; border-left: 6px solid #ddd; border-top: 3px solid transparent; border-bottom: 3px solid transparent; }
+  .ah-ha { text-align: center; padding: 14px; background: #FAEEDA; border-radius: 12px; border: 0.5px solid #BA7517; }
+  .ah-ha-text { font-size: 15px; font-weight: 500; color: #854F0B; margin: 0 0 3px; }
+  .ah-ha-sub { font-size: 11px; color: #666; margin: 0; }
+  .hint { font-size: 11px; color: #999; text-align: center; margin: 0 0 1rem; }
+  @media (max-width: 600px) { .phases { grid-template-columns: 1fr; } .flow-connector { flex-direction: column; } .flow-line { display: none; } }
+</style>
+</head>
+<body>
+
+<div class="r3-header">
+  <p class="r3-title">The R³ Model</p>
+  <p class="r3-sub">AH-HA Coaching, LLC — Signature Coaching Framework</p>
+  <p style="font-size:15px; font-weight:500; color:#854F0B; margin:10px 0 0;">🎤 Let's R.A.P. about it</p>
+  <p style="font-size:11px; color:#999; margin:3px 0 0;">A thoughtful, sequenced approach to awareness, choice, and change</p>
+</div>
+
+<div class="premise">
+  <p class="premise-title">Foundational Premise</p>
+  <p class="premise-text">The gap between emotional literacy and emotional regulation is treating emotion as something to manage externally rather than something to consciously process internally first. The R³ Model closes that gap — not by asking you to excavate the origin of every wound, but by building the self-knowledge needed to read what is happening beneath your own surface in the present moment and respond from that clarity rather than from habit or conditioning.</p>
+  <p class="premise-text">For many people navigating trauma, the full origin story is not accessible. Memory loss, dissociation, and fragmented history make root-cause analysis in emotional responses difficult to pin down, which is why the R³ Model prioritizes what is actually occurring in the present. The framework guides you to analyze what the body is signaling under the current circumstance and builds the capacity to break free from automaticity.</p>
+</div>
+
+<div class="journey-bar">
+  <div class="journey-start">Stuck · stressed · depleted</div>
+  <div class="journey-arrow"></div>
+  <div class="journey-arrow"></div>
+  <div class="journey-arrow"></div>
+  <div class="journey-end">Clarity · purpose · joy</div>
+</div>
+
+<p class="hint">Select a phase to highlight it. Select a row to expand its detail.</p>
+
+<div class="phases">
+
+  <div class="phase phase-r active" id="p-reflection" onclick="selectPhase('reflection')">
+    <div class="phase-header">
+      <p class="phase-label">Phase 1</p>
+      <p class="phase-name">Reflection</p>
+      <p class="phase-desc">The objective examination of what is actually happening — separate from the emotional charge it carries</p>
+      <p style="font-size:10px; color:#185FA5; margin:4px 0 0; font-style:italic;">🎵 Emotional weight: heavy, weighted, gloom before clarity</p>
+    </div>
+    <div class="rap-rows">
+      <div class="rap-row" onclick="toggleRow(event,'r1-r')">
+        <p class="rap-letter">R — Reflection</p>
+        <p class="rap-term">What — The entry point</p>
+        <p class="rap-detail" id="r1-r">Reflection is not about reliving or judging the moment. It is about looking at it clearly enough to understand what it is showing you. Nothing that follows is possible without first seeing the situation as it is — not as the weight of it makes it feel.</p>
+      </div>
+      <div class="rap-row" onclick="toggleRow(event,'r1-a')">
+        <p class="rap-letter">A — Aware &amp; Attentive</p>
+        <p class="rap-term">How — The two points of analysis</p>
+        <p class="rap-detail" id="r1-a">Aware and Attentive are the two points of analysis within the brief window between the triggering incident and the response — what was actually present in the surrounding conditions, and what the body was physically signaling. Together they make that window productive rather than bypassed.
+          <ul>
+            <li><strong>Aware</strong> — What was already present before this trigger arrived? Name the emotional, physical, or circumstantial load you brought into this moment. Awareness is not excavation — it is acknowledgment. You are naming what was already sitting in the room when the trigger walked in.</li>
+            <li><strong>Attentive</strong> — What is your body doing right now? Jaw tight. Shoulders elevated. Breath shallow. Stomach contracted. The body registers threat before the mind names it. Attentiveness is the practice of reading that signal rather than bypassing it. These are not symptoms to manage — they are data to use.</li>
+          </ul>
+        </p>
+      </div>
+      <div class="rap-row" onclick="toggleRow(event,'r1-p')">
+        <p class="rap-letter">P — Purposeful Pondering</p>
+        <p class="rap-term">Why — The forward lens</p>
+        <p class="rap-detail" id="r1-p">With Awareness and Attentiveness engaged, Purposeful Pondering asks: what is this moment actually showing me, and what does that make possible? This is not dwelling. It is not spiraling into always and never thinking. It is active, solution-oriented inquiry — examining what has been revealed with a forward lens. Purposeful Pondering is the practice of transforming observation into direction, so that what you now see becomes the foundation for how you choose to move.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="phase phase-re" id="p-resistance" onclick="selectPhase('resistance')">
+    <div class="phase-header">
+      <p class="phase-label">Phase 2</p>
+      <p class="phase-name">Resistance</p>
+      <p class="phase-desc">The intentional interruption of automatic response patterns — staying present long enough to choose</p>
+      <p style="font-size:10px; color:#2E7D32; margin:4px 0 0; font-style:italic;">🎵 Emotional weight: almost defeated but still standing, still choosing</p>
+    </div>
+    <div class="rap-rows">
+      <div class="rap-row" onclick="toggleRow(event,'r2-r')">
+        <p class="rap-letter">R — Resistance</p>
+        <p class="rap-term">What — The interruption</p>
+        <p class="rap-detail" id="r2-r">The intentional interruption of the automatic conditioned response — the moment you stop the pattern before it completes itself. Resistance is the practice of interrupting automatic responses long enough to choose — whether to press forward or change direction — based on what aligns with your values, your capacity, and what you need to preserve. Both pressing and pivoting can be acts of wisdom. Both can also be acts of conditioning. The power is not in which one you choose. The power is in choosing from consciousness, not from habit.</p>
+      </div>
+      <div class="rap-row" onclick="toggleRow(event,'r2-a')">
+        <p class="rap-letter">A — Act</p>
+        <p class="rap-term">How — The three-layer check</p>
+        <p class="rap-detail" id="r2-a">Remaining present creates the conditions for intentional action. Act moves through three layers:
+          <ul>
+            <li><strong>Pattern Recognition</strong> — Was my response conscious or conditioned? Press pattern: over-functioning, suppressing impact. Pivot pattern: withdrawal, disengagement.</li>
+            <li><strong>Alignment Check</strong> — Is this response appropriate to this situation at this moment? Does it align with my values, my current capacity, and what I am actually trying to preserve?</li>
+            <li><strong>Consequence Awareness</strong> — What does my action produce? What costs or benefits — emotionally, physically, relationally, and beyond — may result?</li>
+          </ul>
+        </p>
+      </div>
+      <div class="rap-row" onclick="toggleRow(event,'r2-p')">
+        <p class="rap-letter">P — Purposeful Pressing or Pivoting</p>
+        <p class="rap-term">Why — Conscious direction</p>
+        <p class="rap-detail" id="r2-p">When direction is informed by concrete, measurable actions that can be reflected on rather than habit or conditioning, choice becomes the new evidence the nervous system needs to make informed decisions — carried forward across situations until intentional response replaces automatic reaction, leading to lasting growth.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="phase phase-rv" id="p-revelation" onclick="selectPhase('revelation')">
+    <div class="phase-header">
+      <p class="phase-label">Phase 3</p>
+      <p class="phase-name">Revelation</p>
+      <p class="phase-desc">The emergence of truth that Reflection and Resistance together produce — the AH-HA moment</p>
+      <p style="font-size:10px; color:#854F0B; margin:4px 0 0; font-style:italic;">🎵 Emotional weight: hype, joyful, breakthrough energy</p>
+    </div>
+    <div class="rap-rows">
+      <div class="rap-row" onclick="toggleRow(event,'r3-r')">
+        <p class="rap-letter">R — Revelation</p>
+        <p class="rap-term">What — The generative output</p>
+        <p class="rap-detail" id="r3-r">The emergence of truth that could not have arrived before Reflection named what was present and Resistance interrupted what was automatic. Revelation is the AH-HA moment: the point at which two inputs — objective awareness and conscious choice — combine to generate understanding, clarity, and truth about yourself and your patterns that now becomes the foundation for how you move forward. Revelation is not another round of inward examination. It is what the examination produces.</p>
+      </div>
+      <div class="rap-row" onclick="toggleRow(event,'r3-a')">
+        <p class="rap-letter">A — Accept</p>
+        <p class="rap-term">How — Receiving and integrating</p>
+        <p class="rap-detail" id="r3-a">The practice of receiving the truth that the R³ process has produced and integrating it into informed, purposeful decision-making going forward:
+          <ul>
+            <li><strong>Receive the insight</strong> — What has this process revealed? Name it specifically. Not the feeling, but the truth beneath it. The pattern recognized. The proportion examined. The understanding that has surfaced.</li>
+            <li><strong>Integrate without judgment</strong> — Receiving a truth about yourself, your responses, or your patterns requires holding it without shame and without deflection. Integration means allowing the insight to become part of how you understand yourself going forward, expanding your capacity to purposefully choose.</li>
+          </ul>
+          The AH-HA is not the end of the process. It is the moment the process becomes productive.
+        </p>
+      </div>
+      <div class="rap-row" onclick="toggleRow(event,'r3-p')">
+        <p class="rap-letter">P — Purposeful Practicing</p>
+        <p class="rap-term">Why — Compounding growth</p>
+        <p class="rap-detail" id="r3-p">The truth Revelation produces only compounds in value through consistent, intentional application. The nervous system does not update on insight alone — it updates on repeated evidence that the new understanding is being acted on. Purposeful Practicing is the commitment to conscious application of that insight, continuously generating new evidence with each cycle. Each new cycle through the R³ Model begins richer because of what the last cycle produced. When direction is informed by concrete, measurable actions that can be reflected on rather than habit or conditioning, choice becomes the new evidence the nervous system needs to make informed decisions — carried forward across situations until intentional response replaces automatic reaction, leading to lasting growth.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="flow-connector">
+  <div class="flow-node">Self-awareness</div>
+  <div class="flow-line"></div>
+  <div class="flow-node">Intentional choice</div>
+  <div class="flow-line"></div>
+  <div class="flow-node">Sustained practice</div>
+  <div class="flow-line"></div>
+  <div class="flow-node">Lasting growth</div>
+</div>
+
+<div class="ah-ha">
+  <p class="ah-ha-text">AH-HA Coaching, LLC</p>
+  <p class="ah-ha-sub">The R³ Model is the roadmap. The AH-HA moment is what the process produces. PLURAL is what becomes possible when that moment is practiced consistently.</p>
+</div>
+
+<script>
+function selectPhase(phase) {
+  ['reflection','resistance','revelation'].forEach(p => {
+    document.getElementById('p-'+p).classList.remove('active');
+  });
+  document.getElementById('p-'+phase).classList.add('active');
+}
+function toggleRow(e, id) {
+  e.stopPropagation();
+  const el = document.getElementById(id);
+  el.classList.toggle('show');
+}
+</script>
+</body>
+</html>

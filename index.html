@@ -54,6 +54,54 @@
   .ah-ha-sub { font-size: 11px; color: #666; margin: 0; }
   .hint { font-size: 11px; color: #999; text-align: center; margin: 0 0 1rem; }
   @media (max-width: 600px) { .phases { grid-template-columns: 1fr; } .flow-connector { flex-direction: column; } .flow-line { display: none; } }
+
+  /* ── Section divider ── */
+  .section-block { margin: 2rem 0 0; }
+  .section-title { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #854F0B; margin: 0 0 6px; }
+  .section-intro { font-size: 12px; color: #444; line-height: 1.7; margin: 0 0 12px; }
+
+  /* ── Application Across Contexts ── */
+  .context-cards { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 12px; }
+  .context-card { border-radius: 10px; border: 0.5px solid #ddd; padding: 14px 16px; }
+  .context-card-label { font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 5px; }
+  .context-card-text { font-size: 11px; color: #444; line-height: 1.7; margin: 0; }
+  .ctx-personal { background: #E6F1FB; border-color: #185FA5; }
+  .ctx-personal .context-card-label { color: #185FA5; }
+  .ctx-educator { background: #F1F8F1; border-color: #2E7D32; }
+  .ctx-educator .context-card-label { color: #2E7D32; }
+  .ctx-culture { background: #FAEEDA; border-color: #854F0B; }
+  .ctx-culture .context-card-label { color: #854F0B; }
+  @media (max-width: 600px) { .context-cards { grid-template-columns: 1fr; } }
+
+  /* ── Emotional Arc ── */
+  .arc-row { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 12px; margin: 0 0 10px; }
+  .arc-card { border-radius: 10px; padding: 12px 14px; border: 0.5px solid #ddd; }
+  .arc-phase-label { font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 3px; }
+  .arc-weight { font-size: 12px; font-style: italic; color: #555; margin: 0 0 5px; }
+  .arc-note { font-size: 11px; color: #666; margin: 0; line-height: 1.5; }
+  .arc-r { background: #E6F1FB; border-color: #185FA5; }
+  .arc-r .arc-phase-label { color: #185FA5; }
+  .arc-re { background: #F1F8F1; border-color: #2E7D32; }
+  .arc-re .arc-phase-label { color: #2E7D32; }
+  .arc-rv { background: #FAEEDA; border-color: #854F0B; }
+  .arc-rv .arc-phase-label { color: #854F0B; }
+  .arc-placeholder { font-size: 11px; color: #999; font-style: italic; border: 0.5px dashed #ccc; border-radius: 8px; padding: 10px 14px; text-align: center; }
+  @media (max-width: 600px) { .arc-row { grid-template-columns: 1fr; } }
+
+  /* ── PLURAL ── */
+  .plural-block { background: #FAEEDA; border: 0.5px solid #BA7517; border-radius: 12px; padding: 18px 20px; }
+  .plural-posture-row { display: flex; gap: 16px; margin: 12px 0 16px; }
+  .posture-card { flex: 1; background: #fff; border-radius: 8px; padding: 12px 14px; border: 0.5px solid #ddd; }
+  .posture-letter { font-size: 26px; font-weight: 700; line-height: 1; margin: 0 0 5px; }
+  .posture-label { font-size: 11px; font-weight: 600; letter-spacing: 0.06em; margin: 0 0 5px; }
+  .posture-desc { font-size: 11px; color: #555; line-height: 1.5; margin: 0; }
+  .posture-arms-down .posture-letter { color: #999; }
+  .posture-arms-out .posture-letter { color: #854F0B; }
+  .plural-letters { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 0; }
+  .plural-item { background: #fff; border: 0.5px solid #BA7517; border-radius: 6px; padding: 6px 12px; display: flex; align-items: center; gap: 6px; }
+  .plural-initial { font-size: 15px; font-weight: 700; color: #854F0B; }
+  .plural-word { font-size: 11px; color: #555; }
+  @media (max-width: 600px) { .plural-posture-row { flex-direction: column; } }
 </style>
 </head>
 <body>
@@ -190,7 +238,106 @@
   <div class="flow-node">Lasting growth</div>
 </div>
 
-<div class="ah-ha">
+<!-- ══════════════════════════════════════════════
+     APPLICATION ACROSS CONTEXTS
+════════════════════════════════════════════════ -->
+<div class="section-block">
+  <p class="section-title">Application Across Contexts</p>
+  <p class="section-intro">The R³ Model is a trauma-informed framework designed for anyone navigating high stress environments where automatic conditioned responses are being triggered and conscious choice has been replaced by habit. The environment changes. What the model targets does not.</p>
+  <div class="context-cards">
+
+    <div class="context-card ctx-personal">
+      <p class="context-card-label">Personal</p>
+      <p class="context-card-text">For people navigating the aftermath of trauma, high stress moments do not always arrive clean. The nervous system carries the imprint of past harm — and present triggers can activate survival responses calibrated to that history, instead of what is actually in front of them. This may result in a pattern of responses that feel internally warranted but are disproportionate to the present moment — driving cycles of withdrawal, over-giving, reactivity, and silence that compound over time. The R³ Model provides the process for interrupting those patterns without requiring the full origin story to be accessible. It builds the capacity to recognize what is firing in the present, resist the automatic direction, and choose a response grounded in current reality rather than accumulated harm.</p>
+    </div>
+
+    <div class="context-card ctx-educator">
+      <p class="context-card-label">Educator</p>
+      <p class="context-card-text">In the classroom, automatic responses to accumulated stress produce reactions disproportionate to the present moment — costing instructional time, eroding student relationships, and traveling across the room into students' bodies. Educators are trained to manage student behavior and deliver content, but rarely given tools to understand and interrupt their own conditioned responses under pressure. The result is a cycle where depletion compounds, reactions escalate, and the conditions necessary for learning erode. The R³ Model builds the self-knowledge and regulation capacity that breaks that cycle — restoring intentional response, protecting the relational foundation students need to learn, and giving educators a concrete, repeatable process for navigating high stress moments with clarity rather than conditioning.</p>
+    </div>
+
+    <div class="context-card ctx-culture">
+      <p class="context-card-label">Culture Change</p>
+      <p class="context-card-text">Organizational culture is not built by values statements or initiatives. It is built by what people do in high stress moments — and most of the time, what they do is automatic. Conditioned patterns of avoidance, over-functioning, silence, and reactivity accumulate into the culture everyone experiences but no one can seem to change. The R³ Model targets the only place culture actually changes: the moment between trigger and response, inside the individuals who make up the organization. When people develop the capacity to interrupt automatic patterns and choose consciously — one moment, one interaction, one decision at a time — culture shifts from the inside out. This is not a wellness program. It is a precision intervention at the root of how culture is actually built.</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     EMOTIONAL ARC & SOUNDTRACK
+════════════════════════════════════════════════ -->
+<div class="section-block">
+  <p class="section-title">Emotional Arc &amp; Soundtrack</p>
+  <p class="section-intro">Each phase of the R³ Model carries a distinct emotional weight. The original soundtrack — one song per phase — will be created to match that arc, giving the model a sonic signature that can be heard before it is explained. The descriptions below are the intention each composition will fulfill.</p>
+  <div class="arc-row">
+
+    <div class="arc-card arc-r">
+      <p class="arc-phase-label">Phase 1 — Reflection</p>
+      <p class="arc-weight">Heavy, weighted, gloom before clarity</p>
+      <p class="arc-note">The music enters where the person is — not where they are going. Before anything can shift, the weight of what has been carried must be acknowledged. The sound of this phase does not rush toward resolution. It sits in the truth of what is present.</p>
+    </div>
+
+    <div class="arc-card arc-re">
+      <p class="arc-phase-label">Phase 2 — Resistance</p>
+      <p class="arc-weight">Almost defeated but still standing, still choosing</p>
+      <p class="arc-note">The music holds the tension of a person who has not quit — but is not yet through. Not despair, not triumph. The sound of the moment between the pattern and the choice. Still standing means the work is still possible.</p>
+    </div>
+
+    <div class="arc-card arc-rv">
+      <p class="arc-phase-label">Phase 3 — Revelation</p>
+      <p class="arc-weight">Hype, joyful, breakthrough energy</p>
+      <p class="arc-note">The music arrives when the AH-HA does. Not performance — release. The sound of something that has been held for a long time finally being set down. Joyful not because the work is over, but because for the first time, the person can see clearly enough to move.</p>
+    </div>
+
+  </div>
+  <p class="arc-placeholder">🎵 Original compositions in development — AH-HA Coaching, LLC</p>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     PLURAL AS COLLECTIVE OUTCOME
+════════════════════════════════════════════════ -->
+<div class="section-block">
+  <p class="section-title">PLURAL — The Collective Outcome</p>
+  <p class="section-intro" style="margin-bottom:0;">PLURAL is not where the R³ Model begins. It is where consistent, honest practice takes you. Before PLURAL is possible, there is a posture that has to change.</p>
+
+  <div class="plural-block" style="margin-top:12px;">
+
+    <p style="font-size:12px; color:#633806; font-weight:500; margin:0 0 4px;">Two postures. One difference.</p>
+    <p style="font-size:11px; color:#666; margin:0 0 12px; line-height:1.6;">There is a difference between being selfI<strong>S</strong>H and being selfCen<strong>T</strong>ered. They are not the same thing — and the letters are not accidental.</p>
+
+    <div class="plural-posture-row">
+
+      <div class="posture-card posture-arms-down">
+        <p class="posture-letter">self<span style="font-size:32px; color:#555;">I</span>SH</p>
+        <p class="posture-label" style="color:#888;">Arms down. Everything stops at I.</p>
+        <p class="posture-desc">The I is a person standing with their arms at their sides. Contained. Present but not extending. Not reaching. Energy collapses inward. The ISH is the corruption — it takes something that could be a foundation and turns it into a wall. There is no path to PLURAL from behind a wall.</p>
+      </div>
+
+      <div class="posture-card posture-arms-out">
+        <p class="posture-letter">selfCen<span style="font-size:32px; color:#854F0B;">T</span>ered</p>
+        <p class="posture-label" style="color:#854F0B;">Arms extended. Grounded and reaching.</p>
+        <p class="posture-desc">The T is a person standing tall with arms extended — left and right, outward, toward others. Think of the oxygen mask on an airplane. You put yours on first. Not because you don't care about the people around you — but because you cannot extend to anyone from a collapsed position. The self is the launchpad. Not the finish line.</p>
+      </div>
+
+    </div>
+
+    <p style="font-size:11px; color:#633806; font-weight:500; margin:0 0 8px;">PLURAL is where the T posture leads.</p>
+    <p style="font-size:11px; color:#555; line-height:1.7; margin:0 0 12px;">When the R³ Model is practiced consistently — when automatic responses no longer run the show and conscious choice becomes the operating standard — what becomes available is not just personal clarity. It is the capacity for a different quality of relationship. With self. With others. This is PLURAL: the natural outcome of people who have done the internal work of Reflection, survived the difficulty of Resistance, and arrived at the clarity of Revelation — and then practiced it long enough that the posture changes.</p>
+
+    <div class="plural-letters">
+      <div class="plural-item"><span class="plural-initial">P</span><span class="plural-word">Peace</span></div>
+      <div class="plural-item"><span class="plural-initial">L</span><span class="plural-word">Love</span></div>
+      <div class="plural-item"><span class="plural-initial">U</span><span class="plural-word">Understanding</span></div>
+      <div class="plural-item"><span class="plural-initial">R</span><span class="plural-word">Respect</span></div>
+      <div class="plural-item"><span class="plural-initial">A</span><span class="plural-word">Acceptance</span></div>
+      <div class="plural-item"><span class="plural-initial">L</span><span class="plural-word">Learning</span></div>
+    </div>
+
+  </div>
+</div>
+
+<div class="ah-ha" style="margin-top:2rem;">
   <p class="ah-ha-text">AH-HA Coaching, LLC</p>
   <p class="ah-ha-sub">The R³ Model is the roadmap. The AH-HA moment is what the process produces. PLURAL is what becomes possible when that moment is practiced consistently.</p>
 </div>

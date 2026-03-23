@@ -24,7 +24,7 @@ html{scroll-behavior:smooth}
 }
 body{font-family:'Jost',sans-serif;background:#f0ede8;color:var(--body);min-height:100vh;padding:2rem 1rem}
 ::selection{background:rgba(43,158,179,0.18);color:var(--dark)}
-.page{max-width:900px;margin:0 auto;background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 8px 60px rgba(0,0,0,0.10)}
+.page{max-width:1120px;margin:0 auto;background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 8px 60px rgba(0,0,0,0.10)}
 .cg{font-family:'Cormorant Garamond',Georgia,serif}
 
 /* ══════════════════════════════════════════════
@@ -39,19 +39,22 @@ body{font-family:'Jost',sans-serif;background:#f0ede8;color:var(--body);min-heig
 .fade-in.visible{opacity:1;transform:translateY(0)}
 
 /* ── HEADER ── */
-.hd{padding:3rem 3.5rem 2.5rem;position:relative;overflow:hidden;border-bottom:1px solid var(--border)}
+.hd{padding:3rem 4rem 2.5rem;position:relative;overflow:hidden;border-bottom:1px solid var(--border)}
 .hd-gradient-bar{height:5px;background:linear-gradient(to right,var(--blue),var(--green-bright),var(--gold));position:absolute;top:0;left:0;right:0}
-.hd-top{display:flex;align-items:flex-start;justify-content:space-between;gap:2rem;margin-bottom:2rem;flex-wrap:wrap}
-.hd-identity{display:flex;align-items:center;gap:1.25rem}
-.r3-mark{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(88px,12vw,130px);font-weight:700;line-height:0.85;letter-spacing:-4px;color:var(--teal)}
-.logo-img{width:clamp(150px,18vw,200px);height:auto;object-fit:contain;margin-top:8px}
+.hd-top{display:flex;align-items:center;justify-content:space-between;gap:2rem;margin-bottom:2.5rem;flex-wrap:wrap}
+.hd-identity{display:flex;align-items:center;gap:1.5rem}
+.r3-mark{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(72px,10vw,110px);font-weight:700;line-height:0.85;letter-spacing:-4px;color:var(--teal)}
+.logo-img{width:clamp(120px,16vw,180px);height:auto;object-fit:contain}
+.hd-brand-block{display:flex;flex-direction:column;gap:2px}
+.hd-brand-name{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(20px,3vw,28px);font-weight:700;color:var(--dark);line-height:1.15;letter-spacing:-0.5px}
+.hd-brand-sub{font-size:clamp(10px,1.3vw,12px);font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted)}
 .hd-meta{text-align:right;padding-top:6px}
 .brand-line{font-size:11px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
 .tagline{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(15px,2.2vw,19px);font-style:italic;color:var(--teal);font-weight:600}
 .hd-premise{margin-bottom:1.75rem}
 .premise-pull{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(22px,3.2vw,30px);font-weight:600;color:var(--dark);line-height:1.4;margin-bottom:1.1rem}
 .premise-pull em{font-style:italic;color:var(--teal)}
-.premise-body{font-size:clamp(14px,1.8vw,16px);font-weight:300;color:var(--muted);line-height:2;max-width:760px}
+.premise-body{font-size:clamp(14px,1.8vw,16px);font-weight:300;color:var(--muted);line-height:2;max-width:860px}
 .premise-body + .premise-body{margin-top:16px}
 .hd-rap{display:flex;align-items:center;gap:1.5rem;padding:18px 24px;background:linear-gradient(135deg,#EAF5F8 0%,#F5FBEF 100%);border-radius:12px;border:1.5px solid var(--teal);margin-top:2rem;text-decoration:none;cursor:pointer;transition:box-shadow 0.2s,border-color 0.2s,background 0.2s;position:relative}
 .hd-rap:hover{box-shadow:0 6px 24px rgba(43,158,179,0.22);border-color:var(--blue);background:linear-gradient(135deg,#DFF0F7 0%,#EEF8E8 100%)}
@@ -71,7 +74,7 @@ a:focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:4
    Inserted between header and first divider.
    Styled entirely in the site's existing palette.
    ══════════════════════════════════════════════ */
-.assessment-sec{padding:2.5rem 3.5rem;background:var(--light);border-bottom:1px solid var(--border)}
+.assessment-sec{padding:2.5rem 4rem;background:var(--light);border-bottom:1px solid var(--border)}
 .assessment-intro{margin-bottom:1.75rem}
 .assessment-intro-label{font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);margin-bottom:0.6rem}
 .assessment-intro-head{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(20px,2.8vw,26px);font-weight:700;color:var(--dark);line-height:1.3;margin-bottom:0.5rem}
@@ -117,8 +120,8 @@ a:focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:4
 .restart-btn:hover{color:var(--dark)}
 
 /* ── SECTION WRAPPER ── */
-.sec{padding:2.5rem 3.5rem}
-.sec-alt{padding:2.5rem 3.5rem;background:var(--light)}
+.sec{padding:2.5rem 4rem}
+.sec-alt{padding:2.5rem 4rem;background:var(--light)}
 .eyebrow{font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);margin-bottom:1.5rem}
 .divider{height:1px;background:var(--border);margin:0}
 
@@ -186,7 +189,7 @@ a:focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:4
 .flow-arrow{font-size:16px;color:var(--teal);padding:0 6px;flex-shrink:0;opacity:0.5}
 
 /* ── POSTURE ── */
-.posture-sec{padding:3rem 3.5rem;text-align:center}
+.posture-sec{padding:3rem 4rem;text-align:center}
 .posture-eyebrow{font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);margin-bottom:2rem}
 .posture-flow{display:flex;align-items:center;justify-content:center;gap:clamp(12px,3vw,28px);margin-bottom:2.5rem;flex-wrap:wrap}
 .p-ish{font-family:'Jost',sans-serif;font-size:clamp(18px,3vw,24px);font-weight:400;color:#ccc}
@@ -205,7 +208,7 @@ a:focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:4
 .def-line em{font-style:normal;color:var(--body);font-weight:500}
 
 /* ── PLURAL ── */
-.plural-sec{padding:3rem 3.5rem;background:linear-gradient(135deg,#f0faf2 0%,#fffdf0 100%);text-align:center}
+.plural-sec{padding:3rem 4rem;background:linear-gradient(135deg,#f0faf2 0%,#fffdf0 100%);text-align:center}
 .plural-eyebrow{font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--green);margin-bottom:8px}
 .plural-statement{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(16px,2.5vw,20px);font-weight:600;color:var(--dark);line-height:1.5;max-width:520px;margin:0 auto 2rem;font-style:italic}
 .plural-letters{display:flex;justify-content:center;gap:clamp(10px,2.5vw,24px);flex-wrap:wrap;margin-bottom:1.5rem}
@@ -216,23 +219,51 @@ a:focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:4
 .plural-desc{font-size:clamp(12px,1.6vw,13.5px);color:var(--muted);line-height:1.8;max-width:480px;margin:0 auto}
 
 /* ── FOOTER ── */
-.footer{padding:1.5rem 3.5rem;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;background:#fafaf8}
+.footer{padding:1.5rem 4rem;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;background:#fafaf8}
 .footer-left{display:flex;align-items:center;gap:10px}
 .footer-logo{width:34px;height:auto}
 .footer-name{font-family:'Cormorant Garamond',Georgia,serif;font-size:15px;font-weight:700;color:var(--teal)}
 .footer-sub{font-size:11px;color:var(--muted);letter-spacing:0.06em}
 
 /* ── RESPONSIVE ── */
+
+/* Tablet landscape / small laptops */
+@media(max-width:1024px){
+  .page{max-width:960px}
+  .hd,.sec,.sec-alt,.posture-sec,.plural-sec,.footer,.assessment-sec{padding-left:3rem;padding-right:3rem}
+}
+
+/* Tablet portrait */
+@media(max-width:768px){
+  .page{max-width:100%;margin:0 auto;border-radius:12px}
+  body{padding:1rem 0.5rem}
+  .hd,.sec,.sec-alt,.posture-sec,.plural-sec,.footer,.assessment-sec{padding-left:2rem;padding-right:2rem}
+  .phases-grid,.rap-grid,.ctx-grid{grid-template-columns:1fr 1fr}
+  .ph:last-child{grid-column:1 / -1}
+  .rap-grid .rap-col:last-child{grid-column:1 / -1}
+  .hd-top{gap:1.5rem}
+  .hd-rap{flex-wrap:wrap}
+  .rap-link-badge{margin-left:auto}
+}
+
+/* Mobile */
 @media(max-width:640px){
-  .hd,.sec,.sec-alt,.posture-sec,.plural-sec,.footer,.assessment-sec{padding-left:1.5rem;padding-right:1.5rem}
+  body{padding:0}
+  .page{border-radius:0;box-shadow:none}
+  .hd,.sec,.sec-alt,.posture-sec,.plural-sec,.footer,.assessment-sec{padding-left:1.25rem;padding-right:1.25rem}
   .phases-grid,.rap-grid,.ctx-grid{grid-template-columns:1fr}
+  .ph:last-child{grid-column:auto}
+  .rap-grid .rap-col:last-child{grid-column:auto}
   .posture-defs{grid-template-columns:1fr}
-  .hd-top{flex-direction:column}
+  .hd-top{flex-direction:column;align-items:flex-start}
   .hd-meta{text-align:left}
+  .hd-identity{flex-wrap:wrap}
   .flow-row{flex-direction:column;gap:8px}
   .flow-arrow{transform:rotate(90deg);font-size:14px}
   .flow-node{padding:8px 16px}
   .result-actions{flex-direction:column;align-items:flex-start}
+  .hd-rap{flex-direction:column;align-items:flex-start;gap:1rem}
+  .rap-link-badge{align-self:flex-start}
 }
 </style>
 </head>
@@ -245,6 +276,10 @@ a:focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:4
   <div class="hd-top fade-in">
     <div class="hd-identity">
       <div class="r3-mark cg">R³</div>
+      <div class="hd-brand-block">
+        <div class="hd-brand-name cg">AH-HA Coaching</div>
+        <div class="hd-brand-sub">Awareness &middot; Choice &middot; Change</div>
+      </div>
     </div>
     <div class="hd-meta">
       <p class="brand-line">AH-HA Coaching, LLC</p>

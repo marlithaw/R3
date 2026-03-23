@@ -22,9 +22,9 @@ html{scroll-behavior:smooth}
   --border:#e8e6e0;
   --light:#f7f6f3;
 }
-body{font-family:'Jost',sans-serif;background:#fff;color:var(--body);min-height:100vh;padding:0}
+body{font-family:'Jost',sans-serif;background:#f0ede8;color:var(--body);min-height:100vh;padding:2rem 1rem}
 ::selection{background:rgba(43,158,179,0.18);color:var(--dark)}
-.page{max-width:100%;margin:0 auto;background:#fff;overflow:hidden}
+.page{max-width:900px;margin:0 auto;background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 8px 60px rgba(0,0,0,0.10)}
 .cg{font-family:'Cormorant Garamond',Georgia,serif}
 
 /* ══════════════════════════════════════════════
@@ -39,24 +39,21 @@ body{font-family:'Jost',sans-serif;background:#fff;color:var(--body);min-height:
 .fade-in.visible{opacity:1;transform:translateY(0)}
 
 /* ── HEADER ── */
-.hd{padding:2.5rem clamp(2rem,5vw,6rem) 2.5rem;position:relative;overflow:hidden;border-bottom:1px solid var(--border)}
+.hd{padding:3rem 3.5rem 2.5rem;position:relative;overflow:hidden;border-bottom:1px solid var(--border)}
 .hd-gradient-bar{height:5px;background:linear-gradient(to right,var(--blue),var(--green-bright),var(--gold));position:absolute;top:0;left:0;right:0}
-.hd-top{display:flex;align-items:center;justify-content:space-between;gap:2rem;margin-bottom:2.5rem;flex-wrap:wrap}
-.hd-identity{display:flex;align-items:center;gap:1.75rem}
-.r3-mark{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(64px,8vw,96px);font-weight:700;line-height:0.85;letter-spacing:-4px;color:var(--teal)}
-.logo-img{width:clamp(70px,10vw,120px);height:auto;object-fit:contain;border-radius:8px}
-.hd-brand-block{display:flex;flex-direction:column;gap:2px}
-.hd-brand-name{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(18px,2.5vw,26px);font-weight:700;color:var(--dark);line-height:1.15;letter-spacing:-0.5px}
-.hd-brand-sub{font-size:clamp(10px,1.2vw,12px);font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted)}
+.hd-top{display:flex;align-items:flex-start;justify-content:space-between;gap:2rem;margin-bottom:2rem;flex-wrap:wrap}
+.hd-identity{display:flex;align-items:center;gap:1.25rem}
+.r3-mark{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(88px,12vw,130px);font-weight:700;line-height:0.85;letter-spacing:-4px;color:var(--teal)}
+.logo-img{width:clamp(150px,18vw,200px);height:auto;object-fit:contain;margin-top:8px}
 .hd-meta{text-align:right;padding-top:6px}
-.brand-line{font-size:12px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
-.tagline{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(16px,2vw,20px);font-style:italic;color:var(--teal);font-weight:600}
-.hd-premise{margin-bottom:1.75rem;max-width:900px}
-.premise-pull{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(26px,3.5vw,38px);font-weight:600;color:var(--dark);line-height:1.4;margin-bottom:1.1rem}
+.brand-line{font-size:11px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.tagline{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(15px,2.2vw,19px);font-style:italic;color:var(--teal);font-weight:600}
+.hd-premise{margin-bottom:1.75rem}
+.premise-pull{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(22px,3.2vw,30px);font-weight:600;color:var(--dark);line-height:1.4;margin-bottom:1.1rem}
 .premise-pull em{font-style:italic;color:var(--teal)}
-.premise-body{font-size:clamp(15px,1.6vw,17px);font-weight:300;color:var(--muted);line-height:2;max-width:860px}
+.premise-body{font-size:clamp(14px,1.8vw,16px);font-weight:300;color:var(--muted);line-height:2;max-width:760px}
 .premise-body + .premise-body{margin-top:16px}
-.hd-rap{display:flex;align-items:center;gap:1.5rem;padding:20px 28px;background:linear-gradient(135deg,#EAF5F8 0%,#F5FBEF 100%);border-radius:12px;border:1.5px solid var(--teal);margin-top:2rem;text-decoration:none;cursor:pointer;transition:box-shadow 0.2s,border-color 0.2s,background 0.2s;position:relative;max-width:900px}
+.hd-rap{display:flex;align-items:center;gap:1.5rem;padding:18px 24px;background:linear-gradient(135deg,#EAF5F8 0%,#F5FBEF 100%);border-radius:12px;border:1.5px solid var(--teal);margin-top:2rem;text-decoration:none;cursor:pointer;transition:box-shadow 0.2s,border-color 0.2s,background 0.2s;position:relative}
 .hd-rap:hover{box-shadow:0 6px 24px rgba(43,158,179,0.22);border-color:var(--blue);background:linear-gradient(135deg,#DFF0F7 0%,#EEF8E8 100%)}
 .rap-icon{font-size:28px;flex-shrink:0;line-height:1}
 .rap-text{flex:1}
@@ -74,11 +71,11 @@ a:focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:4
    Inserted between header and first divider.
    Styled entirely in the site's existing palette.
    ══════════════════════════════════════════════ */
-.assessment-sec{padding:3rem clamp(2rem,5vw,6rem);background:var(--light);border-bottom:1px solid var(--border)}
+.assessment-sec{padding:2.5rem 3.5rem;background:var(--light);border-bottom:1px solid var(--border)}
 .assessment-intro{margin-bottom:1.75rem}
 .assessment-intro-label{font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);margin-bottom:0.6rem}
-.assessment-intro-head{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(22px,2.8vw,30px);font-weight:700;color:var(--dark);line-height:1.3;margin-bottom:0.5rem}
-.assessment-intro-body{font-size:clamp(14px,1.5vw,16px);color:var(--muted);line-height:1.8}
+.assessment-intro-head{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(20px,2.8vw,26px);font-weight:700;color:var(--dark);line-height:1.3;margin-bottom:0.5rem}
+.assessment-intro-body{font-size:clamp(13px,1.7vw,14px);color:var(--muted);line-height:1.8}
 
 /* Progress dots */
 .a-dots{display:flex;gap:5px;margin-bottom:1.6rem}
@@ -87,17 +84,17 @@ a:focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:4
 .a-dot.done{background:var(--green)}
 
 /* Card wrapper */
-.assessment-card{background:#fff;border-radius:12px;padding:2.5rem 3rem;border:1px solid var(--border);box-shadow:0 4px 18px rgba(0,0,0,0.04);max-width:780px}
+.assessment-card{background:#fff;border-radius:12px;padding:2rem 2.25rem;border:1px solid var(--border);box-shadow:0 4px 18px rgba(0,0,0,0.04)}
 
 /* Steps */
 .a-step{display:none}
 .a-step.active{display:block;animation:aFadeUp 0.38s ease forwards}
 @keyframes aFadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 
-.a-question{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(19px,2.2vw,24px);font-weight:700;color:var(--dark);line-height:1.35;margin-bottom:1.4rem}
+.a-question{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(17px,2.4vw,21px);font-weight:700;color:var(--dark);line-height:1.35;margin-bottom:1.4rem}
 
 .a-options{display:flex;flex-direction:column;gap:8px}
-.a-opt{background:var(--light);border:1.5px solid var(--border);border-radius:8px;padding:1rem 1.25rem;text-align:left;cursor:pointer;font-family:'Jost',sans-serif;font-size:clamp(14px,1.5vw,16px);color:var(--body);line-height:1.6;transition:border-color 0.2s,background 0.2s,transform 0.2s}
+.a-opt{background:var(--light);border:1.5px solid var(--border);border-radius:8px;padding:0.9rem 1.1rem;text-align:left;cursor:pointer;font-family:'Jost',sans-serif;font-size:clamp(13px,1.7vw,14px);color:var(--body);line-height:1.6;transition:border-color 0.2s,background 0.2s,transform 0.2s}
 .a-opt:hover{border-color:var(--teal);background:#fff;transform:translateX(4px)}
 .a-opt.chosen{border-color:var(--teal);background:#fff;transform:translateX(4px)}
 
@@ -110,35 +107,58 @@ a:focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:4
 .badge-resistance{background:rgba(27,107,46,0.09);color:var(--green)}
 .badge-revelation{background:rgba(232,184,25,0.11);color:var(--gold-deep)}
 
-.result-head{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(20px,2.5vw,26px);font-weight:700;color:var(--dark);line-height:1.25;margin-bottom:0.65rem}
-.result-body{font-size:clamp(14px,1.5vw,16px);color:var(--muted);line-height:1.85;margin-bottom:1.4rem}
+.result-head{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(18px,2.5vw,22px);font-weight:700;color:var(--dark);line-height:1.25;margin-bottom:0.65rem}
+.result-body{font-size:clamp(13px,1.7vw,14px);color:var(--muted);line-height:1.85;margin-bottom:1.4rem}
 .result-actions{display:flex;gap:1rem;align-items:center;flex-wrap:wrap}
 
-.result-cta{background:var(--teal);color:#fff;padding:10px 22px;border-radius:20px;text-decoration:none;font-family:'Jost',sans-serif;font-size:14px;font-weight:700;letter-spacing:0.06em;transition:background 0.2s;display:inline-block}
+.result-cta{background:var(--teal);color:#fff;padding:8px 18px;border-radius:20px;text-decoration:none;font-family:'Jost',sans-serif;font-size:13px;font-weight:700;letter-spacing:0.06em;transition:background 0.2s;display:inline-block}
 .result-cta:hover{background:var(--dark)}
 .restart-btn{background:none;border:none;color:var(--muted);font-size:12px;cursor:pointer;text-decoration:underline;font-family:'Jost',sans-serif}
 .restart-btn:hover{color:var(--dark)}
 
+/* ── SCENARIO SECTION ── */
+.scenario-sec{padding:2.5rem 3.5rem;background:#fff;border-bottom:1px solid var(--border)}
+.scenario-intro{margin-bottom:1.75rem}
+.scenario-intro-label{font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);margin-bottom:0.6rem}
+.scenario-intro-head{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(20px,2.8vw,26px);font-weight:700;color:var(--dark);line-height:1.3;margin-bottom:0.5rem}
+.scenario-intro-body{font-size:clamp(13px,1.7vw,14px);color:var(--muted);line-height:1.8}
+.scenario-card{background:var(--light);border-radius:12px;padding:2rem 2.25rem;border:1px solid var(--border)}
+.scenario-nav{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;padding-bottom:1.25rem;border-bottom:1px solid var(--border)}
+.scenario-nav button{background:#fff;border:1px solid var(--border);color:var(--dark);width:36px;height:36px;border-radius:50%;font-size:1rem;cursor:pointer;transition:var(--transition,all 0.3s ease);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.scenario-nav button:hover{border-color:var(--teal);color:var(--teal)}
+.scenario-counter{font-family:'Jost',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--teal)}
+.scenario-trigger{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(16px,2.2vw,20px);font-style:italic;color:var(--dark);margin-bottom:1.5rem;line-height:1.4;text-align:center}
+.sc-toggle{display:flex;justify-content:center;background:#fff;border-radius:30px;padding:4px;max-width:380px;margin:0 auto 1.5rem;border:1px solid var(--border)}
+.sc-btn{flex:1;padding:0.65rem 0.75rem;border:none;background:transparent;border-radius:25px;font-size:12px;font-weight:700;cursor:pointer;transition:all 0.25s;color:var(--muted);font-family:'Jost',sans-serif;letter-spacing:0.04em;line-height:1.3;text-transform:uppercase}
+.sc-btn.active{background:var(--teal);color:#fff}
+.sc-content{display:none;text-align:left;animation:aFadeUp 0.35s ease;background:#fff;padding:1.5rem 1.75rem;border-radius:8px;font-size:clamp(12px,1.6vw,13.5px);line-height:1.85;color:var(--body)}
+.sc-content.active{display:block}
+.sc-content.conditioned{border-left:3px solid #e74c3c}
+.sc-content.conscious{border-left:3px solid var(--teal)}
+.sc-content p + p{margin-top:0.75rem}
+.sc-content strong{color:var(--dark);font-weight:600}
+.r3-label{color:var(--teal);font-weight:600}
+
 /* ── SECTION WRAPPER ── */
-.sec{padding:3rem clamp(2rem,5vw,6rem)}
-.sec-alt{padding:3rem clamp(2rem,5vw,6rem);background:var(--light)}
+.sec{padding:2.5rem 3.5rem}
+.sec-alt{padding:2.5rem 3.5rem;background:var(--light)}
 .eyebrow{font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);margin-bottom:1.5rem}
 .divider{height:1px;background:var(--border);margin:0}
 
 /* ── PHASES ── */
 .phases-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--border);border-radius:12px;overflow:hidden}
-.ph{padding:2rem 2rem;background:#fff;position:relative;transition:background 0.2s,transform 0.2s}
+.ph{padding:1.75rem 1.5rem;background:#fff;position:relative;transition:background 0.2s,transform 0.2s}
 .ph:hover{background:#fafaf8;transform:translateY(-2px)}
 .ph-accent{position:absolute;top:0;left:0;right:0;height:4px}
 .ph1 .ph-accent{background:var(--blue)}
 .ph2 .ph-accent{background:var(--green-bright)}
 .ph3 .ph-accent{background:var(--gold)}
-.ph-num{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(42px,5vw,58px);font-weight:700;line-height:1;margin-bottom:4px}
+.ph-num{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(38px,5vw,52px);font-weight:700;line-height:1;margin-bottom:4px}
 .ph1 .ph-num{color:var(--blue)}
 .ph2 .ph-num{color:var(--green-bright)}
 .ph3 .ph-num{color:var(--gold-deep)}
-.ph-name{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(19px,2.2vw,24px);font-weight:700;color:var(--dark);margin-bottom:8px}
-.ph-desc{font-size:clamp(13px,1.4vw,15px);color:var(--muted);line-height:1.8}
+.ph-name{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(17px,2.2vw,20px);font-weight:700;color:var(--dark);margin-bottom:8px}
+.ph-desc{font-size:clamp(12px,1.6vw,13px);color:var(--muted);line-height:1.7}
 
 /* ── RAP ── */
 .rap-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:1.5rem}
@@ -155,11 +175,11 @@ a:focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:4
 .rap-item:focus-visible{box-shadow:0 0 0 2px var(--teal);background:rgba(43,158,179,0.04)}
 .rap-row{display:flex;align-items:baseline;gap:8px}
 .rap-letter{font-size:13px;font-weight:700;color:var(--dark);min-width:14px;flex-shrink:0}
-.rap-term{font-size:clamp(13px,1.4vw,15px);color:var(--body);flex:1;font-weight:500}
+.rap-term{font-size:clamp(12px,1.6vw,13px);color:var(--body);flex:1;font-weight:500}
 .rap-wtag{font-size:10px;color:#bbb;font-style:italic}
 .expand-caret{font-size:10px;color:#ccc;transition:transform 0.3s ease,color 0.2s;margin-left:4px}
 .rap-item.active .expand-caret{transform:rotate(180deg);color:var(--teal)}
-.rap-detail{font-size:clamp(13px,1.4vw,15px);color:var(--muted);line-height:1.8;margin-top:0;padding:0 12px;background:var(--light);border-radius:6px;max-height:0;overflow:hidden;opacity:0;transition:max-height 0.35s ease,opacity 0.25s ease,padding 0.35s ease,margin 0.35s ease}
+.rap-detail{font-size:clamp(12px,1.6vw,13px);color:var(--muted);line-height:1.8;margin-top:0;padding:0 12px;background:var(--light);border-radius:6px;max-height:0;overflow:hidden;opacity:0;transition:max-height 0.35s ease,opacity 0.25s ease,padding 0.35s ease,margin 0.35s ease}
 .rap-detail.open{max-height:600px;opacity:1;padding:10px 12px;margin-top:8px}
 .rap-detail strong{color:var(--body)}
 
@@ -174,8 +194,8 @@ a:focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:4
 .ctx1 .ctx-label{color:var(--blue)}
 .ctx2 .ctx-label{color:var(--green-bright)}
 .ctx3 .ctx-label{color:var(--gold-deep)}
-.ctx-punch{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(16px,1.8vw,19px);font-weight:700;color:var(--dark);line-height:1.4;margin-bottom:10px}
-.ctx-body{font-size:clamp(13px,1.4vw,15px);color:var(--muted);line-height:1.9}
+.ctx-punch{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(14px,2vw,16px);font-weight:700;color:var(--dark);line-height:1.4;margin-bottom:10px}
+.ctx-body{font-size:clamp(12px,1.5vw,13px);color:var(--muted);line-height:1.9}
 
 /* ── FLOW ── */
 .flow-row{display:flex;align-items:center;justify-content:center;gap:0;flex-wrap:wrap;padding:1.5rem 0}
@@ -189,7 +209,7 @@ a:focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:4
 .flow-arrow{font-size:16px;color:var(--teal);padding:0 6px;flex-shrink:0;opacity:0.5}
 
 /* ── POSTURE ── */
-.posture-sec{padding:3rem clamp(2rem,5vw,6rem);text-align:center}
+.posture-sec{padding:3rem 3.5rem;text-align:center}
 .posture-eyebrow{font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);margin-bottom:2rem}
 .posture-flow{display:flex;align-items:center;justify-content:center;gap:clamp(12px,3vw,28px);margin-bottom:2.5rem;flex-wrap:wrap}
 .p-ish{font-family:'Jost',sans-serif;font-size:clamp(18px,3vw,24px);font-weight:400;color:#ccc}
@@ -208,7 +228,7 @@ a:focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:4
 .def-line em{font-style:normal;color:var(--body);font-weight:500}
 
 /* ── PLURAL ── */
-.plural-sec{padding:3rem clamp(2rem,5vw,6rem);background:linear-gradient(135deg,#f0faf2 0%,#fffdf0 100%);text-align:center}
+.plural-sec{padding:3rem 3.5rem;background:linear-gradient(135deg,#f0faf2 0%,#fffdf0 100%);text-align:center}
 .plural-eyebrow{font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--green);margin-bottom:8px}
 .plural-statement{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(16px,2.5vw,20px);font-weight:600;color:var(--dark);line-height:1.5;max-width:520px;margin:0 auto 2rem;font-style:italic}
 .plural-letters{display:flex;justify-content:center;gap:clamp(10px,2.5vw,24px);flex-wrap:wrap;margin-bottom:1.5rem}
@@ -219,41 +239,23 @@ a:focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:4
 .plural-desc{font-size:clamp(12px,1.6vw,13.5px);color:var(--muted);line-height:1.8;max-width:480px;margin:0 auto}
 
 /* ── FOOTER ── */
-.footer{padding:1.5rem clamp(2rem,5vw,6rem);border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;background:#fafaf8}
+.footer{padding:1.5rem 3.5rem;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;background:#fafaf8}
 .footer-left{display:flex;align-items:center;gap:10px}
 .footer-logo{width:34px;height:auto}
 .footer-name{font-family:'Cormorant Garamond',Georgia,serif;font-size:15px;font-weight:700;color:var(--teal)}
 .footer-sub{font-size:11px;color:var(--muted);letter-spacing:0.06em}
 
 /* ── RESPONSIVE ── */
-
-/* Tablet portrait */
-@media(max-width:768px){
-  .phases-grid,.rap-grid,.ctx-grid{grid-template-columns:1fr 1fr}
-  .ph:last-child{grid-column:1 / -1}
-  .rap-grid .rap-col:last-child{grid-column:1 / -1}
-  .hd-top{gap:1.5rem}
-  .hd-rap{flex-wrap:wrap;max-width:100%}
-  .rap-link-badge{margin-left:auto}
-  .logo-img{width:clamp(56px,12vw,80px)}
-}
-
-/* Mobile */
 @media(max-width:640px){
+  .hd,.sec,.sec-alt,.posture-sec,.plural-sec,.footer,.assessment-sec{padding-left:1.5rem;padding-right:1.5rem}
   .phases-grid,.rap-grid,.ctx-grid{grid-template-columns:1fr}
-  .ph:last-child{grid-column:auto}
-  .rap-grid .rap-col:last-child{grid-column:auto}
   .posture-defs{grid-template-columns:1fr}
-  .hd-top{flex-direction:column;align-items:flex-start}
+  .hd-top{flex-direction:column}
   .hd-meta{text-align:left}
-  .hd-identity{flex-wrap:wrap}
   .flow-row{flex-direction:column;gap:8px}
   .flow-arrow{transform:rotate(90deg);font-size:14px}
   .flow-node{padding:8px 16px}
   .result-actions{flex-direction:column;align-items:flex-start}
-  .hd-rap{flex-direction:column;align-items:flex-start;gap:1rem}
-  .rap-link-badge{align-self:flex-start}
-  .assessment-card{padding:1.5rem 1.25rem}
 }
 </style>
 </head>
@@ -265,12 +267,7 @@ a:focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:4
   <div class="hd-gradient-bar"></div>
   <div class="hd-top fade-in">
     <div class="hd-identity">
-      <img src="logo.png" alt="AH-HA Coaching — Bridging People, Process, Driving Progress" class="logo-img">
       <div class="r3-mark cg">R³</div>
-      <div class="hd-brand-block">
-        <div class="hd-brand-name cg">AH-HA Coaching</div>
-        <div class="hd-brand-sub">Awareness &middot; Choice &middot; Change</div>
-      </div>
     </div>
     <div class="hd-meta">
       <p class="brand-line">AH-HA Coaching, LLC</p>
@@ -388,6 +385,35 @@ a:focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:4
 
   </div><!-- end .assessment-card -->
 </div><!-- end .assessment-sec -->
+
+<div class="divider"></div>
+
+<!-- SCENARIO SECTION — The Model in Action -->
+<div class="scenario-sec">
+  <div class="scenario-intro fade-in">
+    <p class="scenario-intro-label">The R³ Model in Action</p>
+    <p class="scenario-intro-head cg">Do these moments look familiar?</p>
+    <p class="scenario-intro-body">See how the R³ Model shifts the same high-stress situation from automatic reaction to conscious choice — one phase at a time.</p>
+  </div>
+
+  <div class="scenario-card fade-in d1">
+    <div class="scenario-nav">
+      <button onclick="prevScenario()" aria-label="Previous scenario">&#8592;</button>
+      <span class="scenario-counter" id="sc-counter">Scenario 1 of 10</span>
+      <button onclick="nextScenario()" aria-label="Next scenario">&#8594;</button>
+    </div>
+
+    <div class="scenario-trigger" id="sc-trigger"></div>
+
+    <div class="sc-toggle">
+      <button class="sc-btn active" id="sc-btn-conditioned" onclick="switchSc('conditioned')">Without R³&nbsp; <small style="font-weight:400;opacity:0.75">(Conditioned)</small></button>
+      <button class="sc-btn"        id="sc-btn-conscious"   onclick="switchSc('conscious')">With R³&nbsp; <small style="font-weight:400;opacity:0.75">(Conscious)</small></button>
+    </div>
+
+    <div class="sc-content conditioned active" id="sc-conditioned"></div>
+    <div class="sc-content conscious"          id="sc-conscious"></div>
+  </div>
+</div>
 
 <div class="divider"></div>
 
@@ -563,6 +589,96 @@ a:focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:4
 </div><!-- end .page -->
 
 <script>
+/* ══════════════════════════════════════════════
+   SCENARIO CAROUSEL — 10 educator scenarios
+   ══════════════════════════════════════════════ */
+const scenarios = [
+  {
+    trigger: '"A student yells aggressively in the middle of a quiet lesson."',
+    conditioned: `<p><strong>The Automatic Reaction:</strong> Your heart rate spikes. Feeling disrespected and already tired from the day, you immediately yell back or issue a harsh punishment.</p><p><strong>The Result:</strong> The student escalates. Instructional time is lost. The relational foundation is fractured, and your nervous system remains dysregulated for the rest of the period.</p>`,
+    conscious: `<p><strong>Reflection:</strong> <span class="r3-label">Aware:</span> You acknowledge you brought exhaustion into this period. <span class="r3-label">Attentive:</span> You notice your jaw tighten and your breathing become shallow.</p><p><strong>Resistance:</strong> <span class="r3-label">Pattern Recognition:</span> You recognize the urge to yell back as a conditioned Press pattern. <span class="r3-label">Alignment Check:</span> Does yelling align with your value of connection? No. <span class="r3-label">Consequence Awareness:</span> Escalating will fracture the relationship. You interrupt the urge.</p><p><strong>Revelation:</strong> You realize the student is acting out of embarrassment, not malice. You state in a neutral tone, "The expectation is that we are silent during independent work," turn your body slightly away, and resume teaching.</p>`
+  },
+  {
+    trigger: '"A student refuses to put their phone away after the third reminder."',
+    conditioned: `<p><strong>The Automatic Reaction:</strong> You feel a surge of anger. You march over, demand the phone, and threaten a referral.</p><p><strong>The Result:</strong> The student grips the phone tighter and a public power struggle ensues, derailing the lesson.</p>`,
+    conscious: `<p><strong>Reflection:</strong> <span class="r3-label">Aware:</span> You acknowledge the thought "they never listen to me." <span class="r3-label">Attentive:</span> You notice your shoulders rising and your hands balling into fists.</p><p><strong>Resistance:</strong> <span class="r3-label">Pattern Recognition:</span> You identify the urge to snatch the phone as a Press pattern. <span class="r3-label">Alignment Check:</span> Does a public power struggle align with mutual respect? No. <span class="r3-label">Consequence Awareness:</span> Snatching the phone pushes the student into defense mode. You stop.</p><p><strong>Revelation:</strong> You recognize the behavior as a bid for control. You lean in quietly: "You can put it in your bag or on my desk. I'll check back in one minute." You immediately walk away.</p>`
+  },
+  {
+    trigger: '"Two students begin arguing loudly during a group project."',
+    conditioned: `<p><strong>The Automatic Reaction:</strong> You feel immediate panic. You shout over them to "Shut up and sit down!"</p><p><strong>The Result:</strong> They stop temporarily, but tension remains. The classroom feels unsafe and group work is ruined for the day.</p>`,
+    conscious: `<p><strong>Reflection:</strong> <span class="r3-label">Aware:</span> You acknowledge the pressure to keep the room perfectly quiet. <span class="r3-label">Attentive:</span> You notice a fluttering in your chest and your volume naturally rising.</p><p><strong>Resistance:</strong> <span class="r3-label">Pattern Recognition:</span> You catch the Press pattern to shout over them. <span class="r3-label">Alignment Check:</span> Is raising your voice the right model of regulation? No. <span class="r3-label">Consequence Awareness:</span> Shouting adds chaotic energy. You pause.</p><p><strong>Revelation:</strong> They lack the skills to navigate this disagreement. You walk over, stand near them neutrally: "This conversation is paused. Both of you take a seat. We'll discuss this after class. Return to the reading." You stay near them for 10 seconds.</p>`
+  },
+  {
+    trigger: '"A student rolls their eyes and sighs heavily when you give instructions."',
+    conditioned: `<p><strong>The Automatic Reaction:</strong> You take it personally. You stop the lesson: "Do you have a problem?" — putting them on the spot.</p><p><strong>The Result:</strong> The student responds disrespectfully to save face, turning a minor annoyance into a major disciplinary issue.</p>`,
+    conscious: `<p><strong>Reflection:</strong> <span class="r3-label">Aware:</span> You acknowledge a preexisting feeling of being underappreciated. <span class="r3-label">Attentive:</span> You notice heat flushing into your cheeks and your eyes narrowing.</p><p><strong>Resistance:</strong> <span class="r3-label">Pattern Recognition:</span> You recognize the urge to call them out publicly. <span class="r3-label">Alignment Check:</span> Does this align with your core values? No. <span class="r3-label">Consequence Awareness:</span> Confronting them forces them to save face. You consciously relax your face.</p><p><strong>Revelation:</strong> They are likely overwhelmed, not attacking you. You ignore the eye roll, finish your instructions, then circulate to their desk: "What's the first step you're going to tackle?"</p>`
+  },
+  {
+    trigger: '"A parent sends a highly critical, demanding email at 8:00 PM."',
+    conditioned: `<p><strong>The Automatic Reaction:</strong> You feel immediately defensive. You draft a lengthy reply proving them wrong and hit send.</p><p><strong>The Result:</strong> You spend your evening stressed, and the parent replies with even more hostility the next morning.</p>`,
+    conscious: `<p><strong>Reflection:</strong> <span class="r3-label">Aware:</span> You acknowledge you are already depleted from a long workday. <span class="r3-label">Attentive:</span> You notice your stomach drop and your fingers hovering over the keyboard.</p><p><strong>Resistance:</strong> <span class="r3-label">Pattern Recognition:</span> You identify the urge to immediately defend yourself. <span class="r3-label">Alignment Check:</span> Is responding while dysregulated aligned with professional boundaries? No. <span class="r3-label">Consequence Awareness:</span> A defensive email now will ruin your evening. You close the laptop.</p><p><strong>Revelation:</strong> The parent is acting out of anxiety for their child. The next morning you reply: "Thank you for sharing your concerns. Let's schedule a 10-minute call so we can ensure we're on the same page." You do not address the attacks in writing.</p>`
+  },
+  {
+    trigger: '"A typically engaged student puts their head down and refuses to do the warm-up."',
+    conditioned: `<p><strong>The Automatic Reaction:</strong> You feel annoyed. You tap aggressively on their desk: "Wake up, it's time to work."</p><p><strong>The Result:</strong> You embarrass them, causing them to shut down further and refuse to participate for the rest of the week.</p>`,
+    conscious: `<p><strong>Reflection:</strong> <span class="r3-label">Aware:</span> You acknowledge your expectation for full compliance from this student. <span class="r3-label">Attentive:</span> You notice a flash of heat in your chest and your hand reaching toward their desk.</p><p><strong>Resistance:</strong> <span class="r3-label">Pattern Recognition:</span> You recognize the urge to force compliance. <span class="r3-label">Alignment Check:</span> Does forcing them align with trauma-informed care? No. <span class="r3-label">Consequence Awareness:</span> Embarrassing them causes further shutdown. You stop your hand.</p><p><strong>Revelation:</strong> This is out of character — something external is likely happening. You crouch to eye level: "I notice you're not yourself today. Do you need five minutes, or do you need some water?" You give them space.</p>`
+  },
+  {
+    trigger: '"The class is highly energetic and won\'t settle down after a transition."',
+    conditioned: `<p><strong>The Automatic Reaction:</strong> You feel overwhelmed. You flick the lights rapidly and threaten to take away recess if they don't get quiet immediately.</p><p><strong>The Result:</strong> The class quiets out of fear but the energy stays anxious. You've made a threat you now have to follow through on.</p>`,
+    conscious: `<p><strong>Reflection:</strong> <span class="r3-label">Aware:</span> You acknowledge your sensory overload and the ticking clock. <span class="r3-label">Attentive:</span> You notice a throbbing in your temples and tightness in your throat.</p><p><strong>Resistance:</strong> <span class="r3-label">Pattern Recognition:</span> You spot the Press pattern to issue sweeping threats. <span class="r3-label">Alignment Check:</span> Are empty threats aligned with your management philosophy? No. <span class="r3-label">Consequence Awareness:</span> Threatening recess creates resentment. You stop trying to talk over them.</p><p><strong>Revelation:</strong> The transition was unstructured — they need a hard reset. You stand at the front completely still and silent. Once a few students notice, you say in a normal volume: "If you can hear my voice, take a deep breath." You wait patiently.</p>`
+  },
+  {
+    trigger: '"A student gives a blatantly wrong answer, and the class laughs."',
+    conditioned: `<p><strong>The Automatic Reaction:</strong> You feel awkward. You quickly say "No, that's wrong" and move on to save time.</p><p><strong>The Result:</strong> The student feels humiliated and never raises their hand again. The class learns that making mistakes is dangerous.</p>`,
+    conscious: `<p><strong>Reflection:</strong> <span class="r3-label">Aware:</span> You acknowledge your desire to maintain a fast instructional pace. <span class="r3-label">Attentive:</span> You notice your breath catch and a sinking feeling in your gut.</p><p><strong>Resistance:</strong> <span class="r3-label">Pattern Recognition:</span> You catch the Pivot pattern — saying "No" quickly to escape the awkwardness. <span class="r3-label">Alignment Check:</span> Does moving on protect the student's psychological safety? No. <span class="r3-label">Consequence Awareness:</span> Ignoring the laughter teaches the class that mistakes are dangerous. You pause.</p><p><strong>Revelation:</strong> The laughter is more damaging than the wrong answer. You state firmly: "We do not laugh at learning in this class." Then to the student: "I see why you thought that. Let's look at it another way."</p>`
+  },
+  {
+    trigger: '"Administration announces a new, complex grading policy effective immediately."',
+    conditioned: `<p><strong>The Automatic Reaction:</strong> You feel panicked and resentful. You complain loudly in the staff lounge, spiraling into negativity with colleagues.</p><p><strong>The Result:</strong> You lose your entire prep period to venting and leave the building exhausted and still confused about the policy.</p>`,
+    conscious: `<p><strong>Reflection:</strong> <span class="r3-label">Aware:</span> You acknowledge the already heavy weight of your current workload. <span class="r3-label">Attentive:</span> You notice your chest tightening and your jaw clenching.</p><p><strong>Resistance:</strong> <span class="r3-label">Pattern Recognition:</span> You recognize the urge to join the complaint circle as a Pivot pattern. <span class="r3-label">Alignment Check:</span> Does 40 minutes of venting align with your need for self-preservation? No. <span class="r3-label">Consequence Awareness:</span> Spiraling drains your remaining energy. You step away from the group.</p><p><strong>Revelation:</strong> You need clarity, not consensus on how bad it is. You return to your room, write down two clarifying questions, email them to admin, and use your prep period to grade as planned.</p>`
+  },
+  {
+    trigger: '"You catch a student cheating on a major exam."',
+    conditioned: `<p><strong>The Automatic Reaction:</strong> You feel personally betrayed. You snatch the test away dramatically and glare at the student for the rest of the period.</p><p><strong>The Result:</strong> The student is publicly shamed. Trust is completely broken, and the conversation that follows is defensive rather than restorative.</p>`,
+    conscious: `<p><strong>Reflection:</strong> <span class="r3-label">Aware:</span> You acknowledge you are taking this as a personal reflection of your teaching. <span class="r3-label">Attentive:</span> You notice a sharp spike in your heart rate and your eyes widening.</p><p><strong>Resistance:</strong> <span class="r3-label">Pattern Recognition:</span> You spot the Press pattern to make a public spectacle. <span class="r3-label">Alignment Check:</span> Does public shaming align with restorative practices? No. <span class="r3-label">Consequence Awareness:</span> A dramatic confrontation breaks trust completely. You take a breath.</p><p><strong>Revelation:</strong> Cheating is often driven by anxiety, not malice. You walk past their desk, quietly remove the test, and place a sticky note: "Read your independent book. We will talk privately after the bell." You continue proctoring neutrally.</p>`
+  }
+];
+
+let scIndex = 0;
+
+function renderScenario() {
+  const s = scenarios[scIndex];
+  document.getElementById('sc-counter').textContent = `Scenario ${scIndex + 1} of ${scenarios.length}`;
+  document.getElementById('sc-trigger').textContent = s.trigger;
+  document.getElementById('sc-conditioned').innerHTML = s.conditioned;
+  document.getElementById('sc-conscious').innerHTML   = s.conscious;
+}
+
+function nextScenario() {
+  scIndex = (scIndex + 1) % scenarios.length;
+  renderScenario();
+  switchSc('conditioned');
+}
+
+function prevScenario() {
+  scIndex = (scIndex - 1 + scenarios.length) % scenarios.length;
+  renderScenario();
+  switchSc('conditioned');
+}
+
+function switchSc(type) {
+  ['conditioned','conscious'].forEach(t => {
+    document.getElementById('sc-btn-' + t).classList.remove('active');
+    document.getElementById('sc-' + t).classList.remove('active');
+  });
+  document.getElementById('sc-btn-' + type).classList.add('active');
+  document.getElementById('sc-' + type).classList.add('active');
+}
+
+renderScenario();
+
+
 /* ══════════════════════════════════════════════
    ADDITION 1 — Scroll Reveal
    ══════════════════════════════════════════════ */

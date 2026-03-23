@@ -3,10 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The R³ Model by AH-HA Coaching — a sequenced framework for emotional regulation through Reflection, Resistance, and Revelation. Move from automatic reaction to conscious choice.">
 <title>The R³ Model — AH-HA Coaching, LLC</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
 :root{
   --teal:#2B9EB3;
   --blue:#1B7FC4;
@@ -21,6 +23,7 @@
   --light:#f7f6f3;
 }
 body{font-family:'Jost',sans-serif;background:#f0ede8;color:var(--body);min-height:100vh;padding:2rem 1rem}
+::selection{background:rgba(43,158,179,0.18);color:var(--dark)}
 .page{max-width:900px;margin:0 auto;background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 8px 60px rgba(0,0,0,0.10)}
 .cg{font-family:'Cormorant Garamond',Georgia,serif}
 
@@ -37,8 +40,8 @@ body{font-family:'Jost',sans-serif;background:#f0ede8;color:var(--body);min-heig
 .hd-premise{margin-bottom:1.75rem}
 .premise-pull{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(22px,3.2vw,30px);font-weight:600;color:var(--dark);line-height:1.4;margin-bottom:1.1rem}
 .premise-pull em{font-style:italic;color:var(--teal)}
-.premise-body{font-size:clamp(14px,1.8vw,16px);font-weight:300;color:var(--muted);line-height:1.9}
-.premise-body + .premise-body{margin-top:12px}
+.premise-body{font-size:clamp(14px,1.8vw,16px);font-weight:300;color:var(--muted);line-height:2;max-width:760px}
+.premise-body + .premise-body{margin-top:16px}
 /* RAP gateway — built to read as a clear link, not a footnote */
 .hd-rap{display:flex;align-items:center;gap:1.5rem;padding:18px 24px;background:linear-gradient(135deg,#EAF5F8 0%,#F5FBEF 100%);border-radius:12px;border:1.5px solid var(--teal);margin-top:2rem;text-decoration:none;cursor:pointer;transition:box-shadow 0.2s,border-color 0.2s,background 0.2s;position:relative}
 .hd-rap:hover{box-shadow:0 6px 24px rgba(43,158,179,0.22);border-color:var(--blue);background:linear-gradient(135deg,#DFF0F7 0%,#EEF8E8 100%)}
@@ -50,6 +53,8 @@ body{font-family:'Jost',sans-serif;background:#f0ede8;color:var(--body);min-heig
 .rap-sub em{font-style:normal;color:var(--body);font-weight:500}
 .rap-link-badge{flex-shrink:0;background:var(--teal);color:#fff;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:6px 14px;border-radius:20px;white-space:nowrap;transition:background 0.2s}
 .hd-rap:hover .rap-link-badge{background:var(--blue)}
+.hd-rap:focus-visible{outline:2px solid var(--teal);outline-offset:3px}
+a:focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:4px}
 
 /* ── SECTION WRAPPER ── */
 .sec{padding:2.5rem 3.5rem}
@@ -59,7 +64,8 @@ body{font-family:'Jost',sans-serif;background:#f0ede8;color:var(--body);min-heig
 
 /* ── PHASES ── */
 .phases-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--border);border-radius:12px;overflow:hidden}
-.ph{padding:1.75rem 1.5rem;background:#fff;position:relative}
+.ph{padding:1.75rem 1.5rem;background:#fff;position:relative;transition:background 0.2s,transform 0.2s}
+.ph:hover{background:#fafaf8;transform:translateY(-2px)}
 .ph-accent{position:absolute;top:0;left:0;right:0;height:4px}
 .ph1 .ph-accent{background:var(--blue)}
 .ph2 .ph-accent{background:var(--green-bright)}
@@ -81,21 +87,23 @@ body{font-family:'Jost',sans-serif;background:#f0ede8;color:var(--body);min-heig
 .rc1 .rap-col-head{color:var(--blue)}
 .rc2 .rap-col-head{color:var(--green-bright)}
 .rc3 .rap-col-head{color:var(--gold-deep)}
-.rap-item{cursor:pointer;padding:6px 8px;margin:-6px -8px;border-radius:6px;transition:background 0.15s;margin-bottom:2px}
+.rap-item{cursor:pointer;padding:6px 8px;margin:-6px -8px;border-radius:6px;transition:background 0.15s;margin-bottom:2px;outline:none}
 .rap-item:hover{background:rgba(0,0,0,0.03)}
+.rap-item:focus-visible{box-shadow:0 0 0 2px var(--teal);background:rgba(43,158,179,0.04)}
 .rap-row{display:flex;align-items:baseline;gap:8px}
 .rap-letter{font-size:13px;font-weight:700;color:var(--dark);min-width:14px;flex-shrink:0}
 .rap-term{font-size:clamp(12px,1.6vw,13px);color:var(--body);flex:1;font-weight:500}
 .rap-wtag{font-size:10px;color:#bbb;font-style:italic}
-.expand-caret{font-size:10px;color:#ccc;transition:transform 0.2s;margin-left:4px}
-.rap-item.active .expand-caret{transform:rotate(180deg);color:var(--gold-deep)}
-.rap-detail{display:none;font-size:clamp(12px,1.6vw,13px);color:var(--muted);line-height:1.8;margin-top:8px;padding:10px 12px;background:var(--light);border-radius:6px}
-.rap-detail.open{display:block}
+.expand-caret{font-size:10px;color:#ccc;transition:transform 0.3s ease,color 0.2s;margin-left:4px}
+.rap-item.active .expand-caret{transform:rotate(180deg);color:var(--teal)}
+.rap-detail{font-size:clamp(12px,1.6vw,13px);color:var(--muted);line-height:1.8;margin-top:0;padding:0 12px;background:var(--light);border-radius:6px;max-height:0;overflow:hidden;opacity:0;transition:max-height 0.35s ease,opacity 0.25s ease,padding 0.35s ease,margin 0.35s ease}
+.rap-detail.open{max-height:600px;opacity:1;padding:10px 12px;margin-top:8px}
 .rap-detail strong{color:var(--body)}
 
 /* ── CONTEXTS ── */
 .ctx-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:1.5rem}
-.ctx-card{padding:1.5rem;border-radius:12px;border:1px solid var(--border)}
+.ctx-card{padding:1.5rem;border-radius:12px;border:1px solid var(--border);transition:transform 0.2s,box-shadow 0.2s}
+.ctx-card:hover{transform:translateY(-3px);box-shadow:0 8px 28px rgba(0,0,0,0.07)}
 .ctx1{border-top:4px solid var(--blue)}
 .ctx2{border-top:4px solid var(--green-bright)}
 .ctx3{border-top:4px solid var(--gold)}
@@ -104,17 +112,18 @@ body{font-family:'Jost',sans-serif;background:#f0ede8;color:var(--body);min-heig
 .ctx2 .ctx-label{color:var(--green-bright)}
 .ctx3 .ctx-label{color:var(--gold-deep)}
 .ctx-punch{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(14px,2vw,16px);font-weight:700;color:var(--dark);line-height:1.4;margin-bottom:10px}
-.ctx-body{font-size:clamp(11px,1.5vw,12.5px);color:var(--muted);line-height:1.8}
+.ctx-body{font-size:clamp(12px,1.5vw,13px);color:var(--muted);line-height:1.9}
 
 /* ── FLOW ── */
 .flow-row{display:flex;align-items:center;justify-content:center;gap:0;flex-wrap:wrap;padding:1.5rem 0}
-.flow-node{text-align:center;padding:0 12px}
+.flow-node{text-align:center;padding:10px 18px;border-radius:10px;transition:transform 0.2s,box-shadow 0.2s}
+.flow-node:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(0,0,0,0.06)}
 .flow-label{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(14px,2.2vw,18px);font-weight:700}
-.fn1 .flow-label{color:var(--blue)}
-.fn2 .flow-label{color:var(--green-bright)}
-.fn3 .flow-label{color:var(--gold-deep)}
-.fn4 .flow-label{color:var(--green)}
-.flow-arrow{font-size:18px;color:var(--border);padding:0 4px;flex-shrink:0}
+.fn1{background:rgba(27,127,196,0.06)} .fn1 .flow-label{color:var(--blue)}
+.fn2{background:rgba(61,170,74,0.06)} .fn2 .flow-label{color:var(--green-bright)}
+.fn3{background:rgba(196,154,10,0.06)} .fn3 .flow-label{color:var(--gold-deep)}
+.fn4{background:rgba(27,107,46,0.06)} .fn4 .flow-label{color:var(--green)}
+.flow-arrow{font-size:16px;color:var(--teal);padding:0 6px;flex-shrink:0;opacity:0.5}
 
 /* ── POSTURE ── */
 .posture-sec{padding:3rem 3.5rem;text-align:center}
@@ -122,7 +131,7 @@ body{font-family:'Jost',sans-serif;background:#f0ede8;color:var(--body);min-heig
 .posture-flow{display:flex;align-items:center;justify-content:center;gap:clamp(12px,3vw,28px);margin-bottom:2.5rem;flex-wrap:wrap}
 .p-ish{font-family:'Jost',sans-serif;font-size:clamp(18px,3vw,24px);font-weight:400;color:#ccc}
 .p-ish .pi{font-size:clamp(26px,5vw,36px);font-weight:700;color:#aaa}
-.p-arr{font-size:14px;color:#ddd;letter-spacing:-2px}
+.p-arr{font-size:20px;color:var(--gold);letter-spacing:-1px;opacity:0.6}
 .p-ctr{font-family:'Jost',sans-serif;font-size:clamp(32px,6vw,46px);font-weight:400;color:#bbb}
 .p-ctr .pt{font-size:clamp(58px,10vw,80px);font-weight:700;color:var(--gold);line-height:0.85;vertical-align:middle}
 .posture-defs{display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,3vw,32px);max-width:580px;margin:0 auto;text-align:left}
@@ -147,11 +156,11 @@ body{font-family:'Jost',sans-serif;background:#f0ede8;color:var(--body);min-heig
 .plural-desc{font-size:clamp(12px,1.6vw,13.5px);color:var(--muted);line-height:1.8;max-width:480px;margin:0 auto}
 
 /* ── FOOTER ── */
-.footer{padding:1.25rem 3.5rem;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.footer{padding:1.5rem 3.5rem;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;background:#fafaf8}
 .footer-left{display:flex;align-items:center;gap:10px}
 .footer-logo{width:34px;height:auto}
 .footer-name{font-family:'Cormorant Garamond',Georgia,serif;font-size:15px;font-weight:700;color:var(--teal)}
-.footer-sub{font-size:10px;color:var(--muted);letter-spacing:0.06em}
+.footer-sub{font-size:11px;color:var(--muted);letter-spacing:0.06em}
 
 /* ── RESPONSIVE ── */
 @media(max-width:640px){
@@ -160,8 +169,9 @@ body{font-family:'Jost',sans-serif;background:#f0ede8;color:var(--body);min-heig
   .posture-defs{grid-template-columns:1fr}
   .hd-top{flex-direction:column}
   .hd-meta{text-align:left}
-  .flow-row{flex-direction:column;gap:4px}
-  .flow-arrow{transform:rotate(90deg)}
+  .flow-row{flex-direction:column;gap:8px}
+  .flow-arrow{transform:rotate(90deg);font-size:14px}
+  .flow-node{padding:8px 16px}
 }
 </style>
 </head>
@@ -234,15 +244,15 @@ body{font-family:'Jost',sans-serif;background:#f0ede8;color:var(--body);min-heig
 
     <div class="rap-col rc1">
       <p class="rap-col-head">Reflection</p>
-      <div class="rap-item" onclick="toggleRap(this,'r1')">
+      <div class="rap-item" role="button" tabindex="0" aria-expanded="false" onclick="toggleRap(this,'r1')">
         <div class="rap-row"><span class="rap-letter">R</span><span class="rap-term">Reflect</span><span class="rap-wtag">What</span><span class="expand-caret">▾</span></div>
       </div>
       <div class="rap-detail" id="r1">Reflection is not about reliving or judging the moment. It is about looking at it clearly enough to understand what it is showing you. Nothing that follows is possible without first seeing the situation as it is — not as the weight of it makes it feel.</div>
-      <div class="rap-item" onclick="toggleRap(this,'r2')">
+      <div class="rap-item" role="button" tabindex="0" aria-expanded="false" onclick="toggleRap(this,'r2')">
         <div class="rap-row"><span class="rap-letter">A</span><span class="rap-term">Aware &amp; Attentive</span><span class="rap-wtag">How</span><span class="expand-caret">▾</span></div>
       </div>
       <div class="rap-detail" id="r2">Aware and Attentive are the two points of analysis within the brief window between the triggering incident and the response.<br><br><strong>Aware</strong> — What was already present before this trigger arrived? Name the emotional, physical, or circumstantial load you brought into this moment. Awareness is not excavation — it is acknowledgment. You are naming what was already sitting in the room when the trigger walked in.<br><br><strong>Attentive</strong> — What is your body doing right now? Jaw tight. Shoulders elevated. Breath shallow. Stomach contracted. The body registers threat before the mind names it. These are not symptoms to manage — they are data to use.</div>
-      <div class="rap-item" onclick="toggleRap(this,'r3')">
+      <div class="rap-item" role="button" tabindex="0" aria-expanded="false" onclick="toggleRap(this,'r3')">
         <div class="rap-row"><span class="rap-letter">P</span><span class="rap-term">Purposeful Pondering</span><span class="rap-wtag">Why</span><span class="expand-caret">▾</span></div>
       </div>
       <div class="rap-detail" id="r3">With Awareness and Attentiveness engaged, Purposeful Pondering asks: what is this moment actually showing me, and what does that make possible? This is not dwelling. It is not spiraling into always and never thinking. It is active, solution-oriented inquiry — examining what has been revealed with a forward lens. Purposeful Pondering is the practice of transforming observation into direction, so that what you now see becomes the foundation for how you choose to move.</div>
@@ -250,15 +260,15 @@ body{font-family:'Jost',sans-serif;background:#f0ede8;color:var(--body);min-heig
 
     <div class="rap-col rc2">
       <p class="rap-col-head">Resistance</p>
-      <div class="rap-item" onclick="toggleRap(this,'r4')">
+      <div class="rap-item" role="button" tabindex="0" aria-expanded="false" onclick="toggleRap(this,'r4')">
         <div class="rap-row"><span class="rap-letter">R</span><span class="rap-term">Resist</span><span class="rap-wtag">What</span><span class="expand-caret">▾</span></div>
       </div>
       <div class="rap-detail" id="r4">The intentional interruption of the automatic conditioned response — the moment you stop the pattern before it completes itself. Resistance is the practice of interrupting automatic responses long enough to choose — whether to press forward or change direction — based on what aligns with your values, your capacity, and what you need to preserve. Both pressing and pivoting can be acts of wisdom. Both can also be acts of conditioning. The power is not in which one you choose. The power is in choosing from consciousness, not from habit.</div>
-      <div class="rap-item" onclick="toggleRap(this,'r5')">
+      <div class="rap-item" role="button" tabindex="0" aria-expanded="false" onclick="toggleRap(this,'r5')">
         <div class="rap-row"><span class="rap-letter">A</span><span class="rap-term">Act</span><span class="rap-wtag">How</span><span class="expand-caret">▾</span></div>
       </div>
       <div class="rap-detail" id="r5">Remaining present creates the conditions for intentional action. Act moves through three layers:<br><br><strong>Pattern Recognition</strong> — Was my response conscious or conditioned? Press pattern: over-functioning, suppressing impact. Pivot pattern: withdrawal, disengagement.<br><br><strong>Alignment Check</strong> — Is this response appropriate to this situation at this moment? Does it align with my values, my current capacity, and what I am actually trying to preserve?<br><br><strong>Consequence Awareness</strong> — What does my action produce? What costs or benefits — emotionally, physically, relationally, and beyond — may result?</div>
-      <div class="rap-item" onclick="toggleRap(this,'r6')">
+      <div class="rap-item" role="button" tabindex="0" aria-expanded="false" onclick="toggleRap(this,'r6')">
         <div class="rap-row"><span class="rap-letter">P</span><span class="rap-term">Purposeful Pressing or Pivoting</span><span class="rap-wtag">Why</span><span class="expand-caret">▾</span></div>
       </div>
       <div class="rap-detail" id="r6">When direction is informed by concrete, measurable actions that can be reflected on rather than habit or conditioning, choice becomes the new evidence the nervous system needs to make informed decisions — carried forward across situations until intentional response replaces automatic reaction, leading to lasting growth.</div>
@@ -266,15 +276,15 @@ body{font-family:'Jost',sans-serif;background:#f0ede8;color:var(--body);min-heig
 
     <div class="rap-col rc3">
       <p class="rap-col-head">Revelation</p>
-      <div class="rap-item" onclick="toggleRap(this,'r7')">
+      <div class="rap-item" role="button" tabindex="0" aria-expanded="false" onclick="toggleRap(this,'r7')">
         <div class="rap-row"><span class="rap-letter">R</span><span class="rap-term">Reveal</span><span class="rap-wtag">What</span><span class="expand-caret">▾</span></div>
       </div>
       <div class="rap-detail" id="r7">The emergence of truth that could not have arrived before Reflection named what was present and Resistance interrupted what was automatic. Revelation is the AH-HA moment: the point at which two inputs — objective awareness and conscious choice — combine to generate understanding, clarity, and truth about yourself and your patterns that now becomes the foundation for how you move forward. Revelation is not another round of inward examination. It is what the examination produces.</div>
-      <div class="rap-item" onclick="toggleRap(this,'r8')">
+      <div class="rap-item" role="button" tabindex="0" aria-expanded="false" onclick="toggleRap(this,'r8')">
         <div class="rap-row"><span class="rap-letter">A</span><span class="rap-term">Accept</span><span class="rap-wtag">How</span><span class="expand-caret">▾</span></div>
       </div>
       <div class="rap-detail" id="r8">The practice of receiving the truth that the R³ process has produced and integrating it into informed, purposeful decision-making going forward.<br><br><strong>Receive the insight</strong> — What has this process revealed? Name it specifically. Not the feeling, but the truth beneath it. The pattern recognized. The proportion examined. The understanding that has surfaced.<br><br><strong>Integrate without judgment</strong> — Receiving a truth about yourself, your responses, or your patterns requires holding it without shame and without deflection. Integration means allowing the insight to become part of how you understand yourself going forward, expanding your capacity to purposefully choose.<br><br>The AH-HA is not the end of the process. It is the moment the process becomes productive.</div>
-      <div class="rap-item" onclick="toggleRap(this,'r9')">
+      <div class="rap-item" role="button" tabindex="0" aria-expanded="false" onclick="toggleRap(this,'r9')">
         <div class="rap-row"><span class="rap-letter">P</span><span class="rap-term">Purposeful Practicing</span><span class="rap-wtag">Why</span><span class="expand-caret">▾</span></div>
       </div>
       <div class="rap-detail" id="r9">The truth Revelation produces only compounds in value through consistent, intentional application. The nervous system does not update on insight alone — it updates on repeated evidence that the new understanding is being acted on. Purposeful Practicing is the commitment to conscious application of that insight, continuously generating new evidence with each cycle. Each new cycle through the R³ Model begins richer because of what the last cycle produced. When direction is informed by concrete, measurable actions that can be reflected on rather than habit or conditioning, choice becomes the new evidence the nervous system needs to make informed decisions — carried forward across situations until intentional response replaces automatic reaction, leading to lasting growth.</div>
@@ -331,7 +341,7 @@ body{font-family:'Jost',sans-serif;background:#f0ede8;color:var(--body);min-heig
   <p class="posture-eyebrow">The shift R³ produces</p>
   <div class="posture-flow">
     <div class="p-ish">self<span class="pi">I</span>sh</div>
-    <span class="p-arr">———→</span>
+    <span class="p-arr">⟶</span>
     <div class="p-ctr">selfcen<span class="pt">T</span>er</div>
   </div>
   <div class="posture-defs">
@@ -377,7 +387,14 @@ function toggleRap(el,id){
   const open=d.classList.contains('open');
   d.classList.toggle('open',!open);
   el.classList.toggle('active',!open);
+  el.setAttribute('aria-expanded',!open);
 }
+document.addEventListener('keydown',function(e){
+  if((e.key==='Enter'||e.key===' ')&&e.target.classList.contains('rap-item')){
+    e.preventDefault();
+    e.target.click();
+  }
+});
 </script>
 </body>
 </html>

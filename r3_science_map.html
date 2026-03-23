@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>R³ Model — The Science Behind the Sequence</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--blue:#1B7FC4;--blue-lt:#E6F1FB;--blue-dk:#0C447C;--green:#1B6B2E;--green-lt:#EAF3DE;--green-br:#3DAA4A;--gold:#E8B819;--gold-dk:#C49A0A;--gold-lt:#FAEEDA;--teal:#2B9EB3;--dark:#1A2A35;--body:#2c2c2c;--muted:#888;--border:#e8e6e0;--light:#f7f6f3}
+body{font-family:'Jost',sans-serif;background:#f0ede8;color:var(--body);min-height:100vh;padding:2rem 1rem}
+.page{max-width:900px;margin:0 auto;background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 8px 60px rgba(0,0,0,0.10)}
+.cg{font-family:'Cormorant Garamond',Georgia,serif}
+.grad-bar{height:4px;background:linear-gradient(to right,var(--blue),var(--green-br),var(--gold))}
+
+/* HEADER */
+.hd{padding:2.5rem 3rem 2rem;border-bottom:1px solid var(--border)}
+.hd-top{display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-bottom:1.5rem}
+.hd-left{}
+.sci-mark{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(28px,5vw,42px);font-weight:700;color:var(--teal);line-height:1;margin-bottom:4px}
+.hd-brand{font-size:10px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.hd-title{font-size:clamp(13px,1.8vw,15px);font-weight:300;color:var(--muted);line-height:1.6}
+.back-link{font-size:12px;color:var(--teal);font-weight:500;text-decoration:none;display:flex;align-items:center;gap:5px;padding:7px 14px;border:1px solid var(--teal);border-radius:20px;white-space:nowrap;transition:background 0.15s}
+.back-link:hover{background:var(--blue-lt)}
+
+/* FOUNDATION */
+.sec{padding:2rem 3rem}
+.eyebrow{font-size:10px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem}
+.found-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.found-item{padding:10px 12px;border-radius:8px;background:var(--light);border:1px solid var(--border)}
+.found-name{font-size:12px;font-weight:600;color:var(--dark);margin-bottom:2px}
+.found-src{font-size:10px;color:var(--muted);font-style:italic}
+.divider{height:1px;background:var(--border);margin:0}
+
+/* PHASE BLOCKS */
+.phase-block{border-bottom:1px solid var(--border)}
+.phase-head{padding:14px 3rem;display:flex;align-items:center;gap:14px}
+.ph1-head{background:var(--blue-lt)}
+.ph2-head{background:var(--green-lt)}
+.ph3-head{background:var(--gold-lt)}
+.ph-num{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(28px,4vw,38px);font-weight:700;line-height:1}
+.ph1-num{color:var(--blue-dk)} .ph2-num{color:var(--green)} .ph3-num{color:#633806}
+.ph-name{font-size:clamp(16px,2.2vw,19px);font-weight:500;color:var(--dark)}
+.ph-desc{font-size:12px;color:var(--muted);margin-top:2px}
+.rap-table{width:100%}
+.rap-row{display:grid;grid-template-columns:200px 1fr;border-top:1px solid var(--border)}
+.rap-left{padding:14px 1.5rem 14px 3rem;background:var(--light);border-right:1px solid var(--border)}
+.rap-letter{font-size:clamp(18px,2.5vw,22px);font-weight:700;line-height:1;margin-bottom:2px}
+.ph1-l{color:var(--blue)} .ph2-l{color:var(--green-br)} .ph3-l{color:var(--gold-dk)}
+.rap-term{font-size:12px;font-weight:600;color:var(--dark);margin-bottom:2px}
+.rap-what{font-size:10px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted)}
+.rap-right{padding:14px 3rem 14px 1.5rem;display:flex;flex-direction:column;gap:8px}
+.sci-item{display:flex;gap:8px;align-items:flex-start}
+.sci-pill{font-size:9px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:2px 8px;border-radius:10px;white-space:nowrap;flex-shrink:0;margin-top:2px}
+.sp-blue{background:#B5D4F4;color:#0C447C}
+.sp-green{background:#C0DD97;color:#173404}
+.sp-amber{background:#FAC775;color:#412402}
+.sp-teal{background:#9FE1CB;color:#04342C}
+.sp-purple{background:#CECBF6;color:#26215C}
+.sci-text{font-size:clamp(11px,1.5vw,12.5px);color:var(--body);line-height:1.6}
+.sci-cite{font-size:10px;color:var(--muted);font-style:italic;display:block;margin-top:1px}
+
+/* CLOSING */
+.closing{padding:2rem 3rem;background:var(--blue-lt);border-top:2px solid var(--blue)}
+.closing-text{font-size:clamp(13px,1.7vw,14.5px);color:var(--blue-dk);line-height:1.9;font-weight:400}
+
+/* FOOTER */
+.footer{padding:1.25rem 3rem;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.footer-name{font-family:'Cormorant Garamond',Georgia,serif;font-size:14px;font-weight:700;color:var(--teal)}
+.footer-sub{font-size:10px;color:var(--muted)}
+
+@media(max-width:620px){
+  .hd,.sec,.phase-head,.rap-left,.rap-right,.closing,.footer{padding-left:1.5rem;padding-right:1.5rem}
+  .rap-row{grid-template-columns:1fr}
+  .rap-left{border-right:none;border-bottom:1px solid var(--border)}
+  .found-grid{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+<div class="page">
+<div class="grad-bar"></div>
+
+<div class="hd">
+  <div class="hd-top">
+    <div class="hd-left">
+      <div class="sci-mark cg">R³ — The Science Behind the Sequence</div>
+      <p class="hd-brand">AH-HA Coaching, LLC &nbsp;·&nbsp; Research Foundation</p>
+      <p class="hd-title">Each element of RAP maps directly onto peer-reviewed research.<br>The sequence is the intervention.</p>
+    </div>
+    <a class="back-link" href="r3_customer_blueprint.html">← Back to the R³ Model</a>
+  </div>
+</div>
+
+<div class="sec">
+  <p class="eyebrow">Foundational science — embedded across all three phases</p>
+  <div class="found-grid">
+    <div class="found-item"><div class="found-name">Polyvagal Theory</div><div class="found-src">Stephen Porges (1994)</div></div>
+    <div class="found-item"><div class="found-name">Allostatic load</div><div class="found-src">McEwen &amp; Stellar (1993)</div></div>
+    <div class="found-item"><div class="found-name">Window of tolerance</div><div class="found-src">Daniel Siegel (1999)</div></div>
+    <div class="found-item"><div class="found-name">Trauma &amp; the body</div><div class="found-src">van der Kolk (2014)</div></div>
+    <div class="found-item"><div class="found-name">Neuroplasticity</div><div class="found-src">Hebb's Law (1949)</div></div>
+    <div class="found-item"><div class="found-name">Automaticity &amp; inhibitory control</div><div class="found-src">Baumeister &amp; Tierney (2011)</div></div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- PHASE 1 -->
+<div class="phase-block">
+  <div class="phase-head ph1-head">
+    <div class="ph-num ph1-num cg">01</div>
+    <div><div class="ph-name">Reflection</div><div class="ph-desc">The objective examination of what is actually happening</div></div>
+  </div>
+  <div class="rap-table">
+    <div class="rap-row">
+      <div class="rap-left">
+        <div class="rap-letter ph1-l">R</div>
+        <div class="rap-term">Reflect</div>
+        <div class="rap-what">What · entry point</div>
+      </div>
+      <div class="rap-right">
+        <div class="sci-item"><span class="sci-pill sp-blue">Metacognition</span><div><span class="sci-text">Thinking about thinking — the capacity to observe your own mental process without being consumed by it.</span><span class="sci-cite">Flavell (1979); Brown (1987)</span></div></div>
+        <div class="sci-item"><span class="sci-pill sp-teal">Mindfulness</span><div><span class="sci-text">Present-moment, non-judgmental observation as the precondition for any conscious response.</span><span class="sci-cite">Kabat-Zinn (1990)</span></div></div>
+        <div class="sci-item"><span class="sci-pill sp-purple">Cognitive defusion</span><div><span class="sci-text">Stepping back from thoughts and emotions to observe them rather than being fused with them.</span><span class="sci-cite">Hayes, ACT (1999)</span></div></div>
+      </div>
+    </div>
+    <div class="rap-row">
+      <div class="rap-left">
+        <div class="rap-letter ph1-l">A</div>
+        <div class="rap-term">Aware &amp; Attentive</div>
+        <div class="rap-what">How · two points of analysis</div>
+      </div>
+      <div class="rap-right">
+        <div class="sci-item"><span class="sci-pill sp-blue">Affect labeling</span><div><span class="sci-text">Naming an emotion reduces amygdala activity — the act of labeling interrupts automatic escalation.</span><span class="sci-cite">Lieberman et al. (2007)</span></div></div>
+        <div class="sci-item"><span class="sci-pill sp-teal">Interoception</span><div><span class="sci-text">The body's internal signaling system — reading physiological cues before the cognitive mind catches up.</span><span class="sci-cite">Craig (2009); Porges</span></div></div>
+        <div class="sci-item"><span class="sci-pill sp-purple">Somatic experiencing</span><div><span class="sci-text">Trauma is stored in the body and must be read through physical sensation before cognitive processing can occur.</span><span class="sci-cite">Levine (1997); van der Kolk</span></div></div>
+      </div>
+    </div>
+    <div class="rap-row">
+      <div class="rap-left">
+        <div class="rap-letter ph1-l">P</div>
+        <div class="rap-term">Purposeful Pondering</div>
+        <div class="rap-what">Why · forward lens</div>
+      </div>
+      <div class="rap-right">
+        <div class="sci-item"><span class="sci-pill sp-blue">Cognitive reappraisal</span><div><span class="sci-text">Reinterpreting the meaning of a situation — one of the most effective regulation strategies, reduces emotional intensity without suppression.</span><span class="sci-cite">Gross (1998)</span></div></div>
+        <div class="sci-item"><span class="sci-pill sp-green">Solution-focused thinking</span><div><span class="sci-text">Forward-oriented inquiry activates prefrontal cortex problem-solving rather than limbic threat response.</span><span class="sci-cite">de Shazer (1985)</span></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PHASE 2 -->
+<div class="phase-block">
+  <div class="phase-head ph2-head">
+    <div class="ph-num ph2-num cg">02</div>
+    <div><div class="ph-name">Resistance</div><div class="ph-desc">The intentional interruption of automatic response patterns</div></div>
+  </div>
+  <div class="rap-table">
+    <div class="rap-row">
+      <div class="rap-left">
+        <div class="rap-letter ph2-l">R</div>
+        <div class="rap-term">Resist</div>
+        <div class="rap-what">What · the interruption</div>
+      </div>
+      <div class="rap-right">
+        <div class="sci-item"><span class="sci-pill sp-green">Inhibitory control</span><div><span class="sci-text">The executive function that allows suppression of dominant automatic responses in favor of goal-directed ones.</span><span class="sci-cite">Diamond (2013)</span></div></div>
+        <div class="sci-item"><span class="sci-pill sp-teal">Pause-and-plan response</span><div><span class="sci-text">Counterpart to fight-or-flight — the nervous system's capacity to slow, evaluate, and select response under stress.</span><span class="sci-cite">Taylor et al. (2000)</span></div></div>
+        <div class="sci-item"><span class="sci-pill sp-purple">Habit interruption</span><div><span class="sci-text">Automatic behaviors run on cue-routine-reward loops. Interruption at the cue stage is the most effective intervention point.</span><span class="sci-cite">Duhigg (2012)</span></div></div>
+      </div>
+    </div>
+    <div class="rap-row">
+      <div class="rap-left">
+        <div class="rap-letter ph2-l">A</div>
+        <div class="rap-term">Act</div>
+        <div class="rap-what">How · three-layer check</div>
+      </div>
+      <div class="rap-right">
+        <div class="sci-item"><span class="sci-pill sp-green">Pattern recognition</span><div><span class="sci-text">Distinguishing conditioned from conscious response activates prefrontal evaluation over limbic automaticity.</span><span class="sci-cite">Siegel (2010)</span></div></div>
+        <div class="sci-item"><span class="sci-pill sp-teal">Values clarification</span><div><span class="sci-text">Values-congruent behavior produces sustained motivation and reduced emotional distress.</span><span class="sci-cite">Hayes, ACT (1999)</span></div></div>
+        <div class="sci-item"><span class="sci-pill sp-blue">Consequential thinking</span><div><span class="sci-text">Anticipating outcomes activates future-self projection — a prefrontal function that counteracts impulsive limbic response.</span><span class="sci-cite">Hershfield (2011)</span></div></div>
+      </div>
+    </div>
+    <div class="rap-row">
+      <div class="rap-left">
+        <div class="rap-letter ph2-l">P</div>
+        <div class="rap-term">Purposeful Pressing or Pivoting</div>
+        <div class="rap-what">Why · conscious direction</div>
+      </div>
+      <div class="rap-right">
+        <div class="sci-item"><span class="sci-pill sp-green">Self-determination theory</span><div><span class="sci-text">Autonomy — choosing direction from internal values rather than external pressure — is a core driver of sustained behavioral change.</span><span class="sci-cite">Deci &amp; Ryan (1985)</span></div></div>
+        <div class="sci-item"><span class="sci-pill sp-purple">Motivational interviewing</span><div><span class="sci-text">Ambivalence between pressing and pivoting is resolved through values-aligned decision making, not willpower.</span><span class="sci-cite">Miller &amp; Rollnick (1991)</span></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PHASE 3 -->
+<div class="phase-block">
+  <div class="phase-head ph3-head">
+    <div class="ph-num ph3-num cg">03</div>
+    <div><div class="ph-name">Revelation</div><div class="ph-desc">The emergence of truth that Reflection and Resistance together produce</div></div>
+  </div>
+  <div class="rap-table">
+    <div class="rap-row">
+      <div class="rap-left">
+        <div class="rap-letter ph3-l">R</div>
+        <div class="rap-term">Reveal</div>
+        <div class="rap-what">What · generative output</div>
+      </div>
+      <div class="rap-right">
+        <div class="sci-item"><span class="sci-pill sp-amber">Insight research</span><div><span class="sci-text">Sudden insight produces a distinct neural signature — gamma wave burst in the right anterior temporal lobe — different from incremental problem solving.</span><span class="sci-cite">Jung-Beeman et al. (2004)</span></div></div>
+        <div class="sci-item"><span class="sci-pill sp-teal">Post-traumatic growth</span><div><span class="sci-text">Meaning-making from difficult experience produces measurable positive change in self-perception, relationships, and life philosophy.</span><span class="sci-cite">Tedeschi &amp; Calhoun (1996)</span></div></div>
+      </div>
+    </div>
+    <div class="rap-row">
+      <div class="rap-left">
+        <div class="rap-letter ph3-l">A</div>
+        <div class="rap-term">Accept</div>
+        <div class="rap-what">How · receive and integrate</div>
+      </div>
+      <div class="rap-right">
+        <div class="sci-item"><span class="sci-pill sp-amber">Self-compassion</span><div><span class="sci-text">Receiving truth about oneself without shame or deflection requires non-judgment — which is not passive, it is regulatory.</span><span class="sci-cite">Neff (2003)</span></div></div>
+        <div class="sci-item"><span class="sci-pill sp-purple">Narrative integration</span><div><span class="sci-text">Integrating new understanding into existing self-concept is the mechanism by which insight produces lasting change rather than temporary relief.</span><span class="sci-cite">Siegel (2010)</span></div></div>
+        <div class="sci-item"><span class="sci-pill sp-teal">Expressive writing</span><div><span class="sci-text">Translating emotional experience into language produces measurable improvements in psychological and physical health.</span><span class="sci-cite">Pennebaker (1997)</span></div></div>
+      </div>
+    </div>
+    <div class="rap-row">
+      <div class="rap-left">
+        <div class="rap-letter ph3-l">P</div>
+        <div class="rap-term">Purposeful Practicing</div>
+        <div class="rap-what">Why · compounding growth</div>
+      </div>
+      <div class="rap-right">
+        <div class="sci-item"><span class="sci-pill sp-amber">Neuroplasticity</span><div><span class="sci-text">Neurons that fire together wire together — repeated conscious choice literally rewires neural pathways, replacing automatic responses with new defaults.</span><span class="sci-cite">Hebb (1949); Doidge (2007)</span></div></div>
+        <div class="sci-item"><span class="sci-pill sp-green">Deliberate practice</span><div><span class="sci-text">Measurable, repeatable, feedback-informed practice is the mechanism of lasting skill acquisition — not insight alone.</span><span class="sci-cite">Ericsson et al. (1993)</span></div></div>
+        <div class="sci-item"><span class="sci-pill sp-blue">Habit formation</span><div><span class="sci-text">New behavioral patterns require consistent repetition to become automatic — practice is not optional, it is the mechanism.</span><span class="sci-cite">Lally et al. (2010)</span></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="closing">
+  <p class="closing-text">R³ is a sequenced process where the science of each step informs why it must come before the next. Reflection activates metacognition and somatic awareness. Resistance applies inhibitory control and values alignment. Revelation produces insight, integration, and — through Purposeful Practicing — neuroplastic change. The sequence is the intervention.</p>
+</div>
+
+<div class="footer">
+  <span class="footer-name cg">AH-HA Coaching, LLC</span>
+  <span class="footer-sub">ahhacoaching.com &nbsp;·&nbsp; [contact]</span>
+</div>
+
+</div>
+</body>
+</html>

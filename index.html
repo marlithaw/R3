@@ -208,35 +208,45 @@ a:focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:4
 .fn4{background:rgba(27,107,46,0.06)} .fn4 .flow-label{color:var(--green)}
 .flow-arrow{font-size:16px;color:var(--teal);padding:0 6px;flex-shrink:0;opacity:0.5}
 
-/* ── POSTURE ── */
-.posture-sec{padding:3rem 3.5rem;text-align:center}
-.posture-eyebrow{font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);margin-bottom:2rem}
-.posture-flow{display:flex;align-items:center;justify-content:center;gap:clamp(12px,3vw,28px);margin-bottom:2.5rem;flex-wrap:wrap}
-.p-ish{font-family:'Jost',sans-serif;font-size:clamp(18px,3vw,24px);font-weight:400;color:#ccc}
-.p-ish .pi{font-size:clamp(26px,5vw,36px);font-weight:700;color:#aaa}
-.p-arr{font-size:20px;color:var(--gold);letter-spacing:-1px;opacity:0.6}
-.p-ctr{font-family:'Jost',sans-serif;font-size:clamp(32px,6vw,46px);font-weight:400;color:#bbb}
-.p-ctr .pt{font-size:clamp(58px,10vw,80px);font-weight:700;color:var(--gold);line-height:0.85;vertical-align:middle}
-.posture-defs{display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,3vw,32px);max-width:580px;margin:0 auto;text-align:left}
-.def-block{padding:16px 18px;border-radius:10px}
-.def-ish{background:#f9f9f9;border-left:3px solid #ddd}
-.def-ctr{background:#fffbee;border-left:3px solid var(--gold)}
-.def-word{font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:8px}
-.def-ish .def-word{color:#aaa}
-.def-ctr .def-word{color:var(--gold-deep)}
-.def-line{font-size:clamp(12px,1.6vw,13px);line-height:1.9;color:var(--muted)}
-.def-line em{font-style:normal;color:var(--body);font-weight:500}
+/* ── R.A.P. REMIX SECTION ── */
+.remix-sec{padding:3.5rem 3.5rem;background:linear-gradient(135deg,#f0faf2 0%,#fffdf0 100%);text-align:center;display:flex;align-items:center;justify-content:center;min-height:460px}
+.remix-eyebrow{font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);margin-bottom:1.5rem}
+.remix-phase{display:none;width:100%;animation:aFadeUp 0.45s ease}
+.remix-phase.active{display:block}
 
-/* ── PLURAL ── */
-.plural-sec{padding:3rem 3.5rem;background:linear-gradient(135deg,#f0faf2 0%,#fffdf0 100%);text-align:center}
-.plural-eyebrow{font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--green);margin-bottom:8px}
-.plural-statement{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(16px,2.5vw,20px);font-weight:600;color:var(--dark);line-height:1.5;max-width:520px;margin:0 auto 2rem;font-style:italic}
-.plural-letters{display:flex;justify-content:center;gap:clamp(10px,2.5vw,24px);flex-wrap:wrap;margin-bottom:1.5rem}
-.pl-item{text-align:center;cursor:pointer}
-.pl-init{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(36px,6vw,52px);font-weight:700;color:var(--green);line-height:1;display:block;transition:transform 0.2s,color 0.2s}
-.pl-item:hover .pl-init{transform:scale(1.15);color:var(--green-bright)}
-.pl-word{font-size:clamp(8px,1.2vw,10px);letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);display:block;margin-top:4px}
-.plural-desc{font-size:clamp(12px,1.6vw,13.5px);color:var(--muted);line-height:1.8;max-width:480px;margin:0 auto}
+/* Phase 0 & 1 — shared T structure */
+.t-stage{position:relative;display:inline-flex;flex-direction:column;align-items:center;margin-bottom:0.5rem}
+.t-crossbar-row{display:flex;justify-content:center;align-items:flex-end;gap:clamp(3px,1vw,12px);opacity:0;transition:opacity 0.7s ease;margin-bottom:-0.12em}
+.t-crossbar-row.show{opacity:1}
+.tc-l{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(40px,7vw,72px);font-weight:700;color:var(--teal);line-height:1;display:inline-block}
+.t-word-row{display:flex;align-items:baseline;justify-content:center;gap:0}
+.word-left,.word-right{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(28px,5vw,52px);font-weight:400;color:#bbb;transition:opacity 0.4s ease;line-height:1;display:inline-block}
+.word-right-wrap{position:relative;display:inline-block}
+.word-right-sh{position:absolute;left:0;top:0;transition:opacity 0.35s ease}
+.word-right-er{opacity:0;transition:opacity 0.35s ease;visibility:hidden}
+.word-right-er.show{opacity:1;visibility:visible}
+.word-right-sh.hide{opacity:0}
+.word-left-self{transition:opacity 0.35s ease}
+.word-left-cen{opacity:0;transition:opacity 0.35s ease}
+.word-left-cen.show{opacity:1}
+.big-i{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(90px,16vw,150px);font-weight:700;color:#c0392b;line-height:0.88;transition:color 0.5s ease,opacity 0.8s ease;display:inline-block}
+.big-i.teal{color:var(--teal);text-shadow:0 0 40px rgba(43,158,179,0.3)}
+.big-i.fade{opacity:0}
+.remix-word-desc{font-size:clamp(13px,1.7vw,14px);color:var(--muted);line-height:1.85;margin-bottom:1.75rem}
+.remix-btn{background:var(--teal);color:#fff;border:none;padding:0.9rem 2.25rem;border-radius:30px;font-family:'Jost',sans-serif;font-size:13px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;transition:background 0.2s,transform 0.2s}
+.remix-btn:hover{background:var(--dark);transform:translateY(-2px)}
+
+/* Phase 2 — PLURAL expanded */
+.plural-full{display:flex;justify-content:space-between;align-items:flex-start;width:100%;margin-bottom:2rem}
+.pf-item{display:flex;flex-direction:column;align-items:center;flex:1;opacity:0;transform:translateY(12px);transition:opacity 0.5s ease,transform 0.5s ease}
+.pf-item.show{opacity:1;transform:translateY(0)}
+.pf-letter{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(40px,8vw,80px);font-weight:700;color:var(--teal);line-height:1;display:block}
+.pf-meaning{font-size:clamp(7px,1.1vw,10px);letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);display:block;margin-top:6px;opacity:0;transition:opacity 0.5s ease 0.3s}
+.pf-item.show .pf-meaning{opacity:1}
+.remix-statement{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(15px,2.3vw,19px);font-weight:600;color:var(--dark);line-height:1.55;max-width:520px;margin:0 auto;font-style:italic;opacity:0;transition:opacity 0.7s ease}
+.remix-statement.show{opacity:1}
+.remix-desc{font-size:clamp(12px,1.6vw,13.5px);color:var(--muted);line-height:1.8;max-width:480px;margin:1rem auto 0;opacity:0;transition:opacity 0.7s ease 0.3s}
+.remix-desc.show{opacity:1}
 
 /* ── FOOTER ── */
 .footer{padding:1.5rem 3.5rem;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;background:#fafaf8}
@@ -247,7 +257,7 @@ a:focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:4
 
 /* ── RESPONSIVE ── */
 @media(max-width:640px){
-  .hd,.sec,.sec-alt,.posture-sec,.plural-sec,.footer,.assessment-sec{padding-left:1.5rem;padding-right:1.5rem}
+  .hd,.sec,.sec-alt,.footer,.assessment-sec,.scenario-sec,.remix-sec{padding-left:1.5rem;padding-right:1.5rem}
   .phases-grid,.rap-grid,.ctx-grid{grid-template-columns:1fr}
   .posture-defs{grid-template-columns:1fr}
   .hd-top{flex-direction:column}
@@ -543,39 +553,58 @@ a:focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:4
 
 <div class="divider"></div>
 
-<!-- POSTURE -->
-<div class="posture-sec">
-  <p class="posture-eyebrow fade-in">The shift R³ produces</p>
-  <div class="posture-flow fade-in d1">
-    <div class="p-ish">self<span class="pi">I</span>sh</div>
-    <span class="p-arr">⟶</span>
-    <div class="p-ctr">selfcen<span class="pt">T</span>er</div>
-  </div>
-  <div class="posture-defs fade-in d2">
-    <div class="def-block def-ish">
-      <p class="def-word">selfIsh</p>
-      <p class="def-line">Taking without consideration.<br><em>Immediate.</em> Automatic.<br>Driven by impulse rather than awareness.</p>
-    </div>
-    <div class="def-block def-ctr">
-      <p class="def-word">selfcenTer</p>
-      <p class="def-line">Honoring a genuine need without apology.<br><em>Conscious.</em> Deliberate.<br>Driven by self-awareness rather than impulse.</p>
-    </div>
-  </div>
-</div>
+<!-- R.A.P. REMIX — selfIsh → selfcenTer → PLURAL -->
+<div class="remix-sec">
 
-<!-- PLURAL -->
-<div class="plural-sec">
-  <p class="plural-eyebrow fade-in">What selfcenTering produces</p>
-  <p class="plural-statement cg fade-in d1">"PLURAL is not a destination you arrive at.<br>It is what you become capable of."</p>
-  <div class="plural-letters fade-in d2">
-    <div class="pl-item"><span class="pl-init cg">P</span><span class="pl-word">Peace</span></div>
-    <div class="pl-item"><span class="pl-init cg">L</span><span class="pl-word">Love</span></div>
-    <div class="pl-item"><span class="pl-init cg">U</span><span class="pl-word">Understanding</span></div>
-    <div class="pl-item"><span class="pl-init cg">R</span><span class="pl-word">Respect</span></div>
-    <div class="pl-item"><span class="pl-init cg">A</span><span class="pl-word">Acceptance</span></div>
-    <div class="pl-item"><span class="pl-init cg">L</span><span class="pl-word">Learning</span></div>
+  <!-- Phase 0 & 1 share the same T stage -->
+  <div class="remix-phase active" id="remix-p0">
+    <p class="remix-eyebrow">The shift R³ produces</p>
+
+    <div class="t-stage">
+      <!-- Crossbar: PLURAL fades in simultaneously -->
+      <div class="t-crossbar-row" id="t-crossbar-row">
+        <span class="tc-l">P</span>
+        <span class="tc-l">L</span>
+        <span class="tc-l">U</span>
+        <span class="tc-l">R</span>
+        <span class="tc-l">A</span>
+        <span class="tc-l">L</span>
+      </div>
+
+      <!-- Word row: self[I]sh → selfcen[I]er -->
+      <div class="t-word-row">
+        <span class="word-left">
+          <span class="word-left-self" id="word-left-self">self</span><span class="word-left-cen" id="word-left-cen">cen</span>
+        </span>
+        <span class="big-i" id="big-i">I</span>
+        <span class="word-right-wrap">
+          <span class="word-right word-right-sh" id="word-right-sh">sh</span>
+          <span class="word-right word-right-er" id="word-right-er">er</span>
+        </span>
+      </div>
+    </div>
+
+    <div class="remix-word-desc" id="remix-desc-0">
+      <p>Singular focus. Immediate. Automatic.</p>
+      <p>Driven by impulse rather than awareness.</p>
+    </div>
+    <button class="remix-btn" id="remix-btn" onclick="startRemix()">R.A.P. Remix</button>
   </div>
-  <p class="plural-desc fade-in d3">PLURAL is the quality of life — with self and with others — that becomes available when conscious choice replaces automatic reaction.</p>
+
+  <!-- Phase 2: PLURAL expanded full width -->
+  <div class="remix-phase" id="remix-p2">
+    <div class="plural-full">
+      <div class="pf-item" id="pf-P"><span class="pf-letter">P</span><span class="pf-meaning">Peace</span></div>
+      <div class="pf-item" id="pf-L"><span class="pf-letter">L</span><span class="pf-meaning">Love</span></div>
+      <div class="pf-item" id="pf-U"><span class="pf-letter">U</span><span class="pf-meaning">Understanding</span></div>
+      <div class="pf-item" id="pf-R"><span class="pf-letter">R</span><span class="pf-meaning">Respect</span></div>
+      <div class="pf-item" id="pf-A"><span class="pf-letter">A</span><span class="pf-meaning">Acceptance</span></div>
+      <div class="pf-item" id="pf-L2"><span class="pf-letter">L</span><span class="pf-meaning">Learning</span></div>
+    </div>
+    <p class="remix-statement cg" id="remix-statement">"PLURAL is not a destination you arrive at.<br>It is what you become capable of."</p>
+    <p class="remix-desc" id="remix-desc-final">PLURAL is the quality of life — with self and with others — that becomes available when conscious choice replaces automatic reaction.</p>
+  </div>
+
 </div>
 
 <!-- FOOTER -->
@@ -751,6 +780,85 @@ function resetAssessment() {
     d.classList.remove('active', 'done');
     if (i === 0) d.classList.add('active');
   });
+}
+
+
+/* ══════════════════════════════════════════════
+   R.A.P. REMIX — animation sequence
+   Step 1: selfIsh displayed (Phase 0 default)
+   Step 2: click → "sh"→"er", "self"→"selfcen",
+           I turns teal, PLURAL fades in as crossbar
+   Step 3: hold selfcenTer + T moment
+   Step 4: I fades, word fades, crossbar fades
+   Step 5: Phase 2 — PLURAL full width + meanings
+   ══════════════════════════════════════════════ */
+function startRemix() {
+  // Disable button immediately
+  const btn = document.getElementById('remix-btn');
+  btn.style.pointerEvents = 'none';
+  btn.style.opacity = '0.4';
+
+  // Fade out description
+  document.getElementById('remix-desc-0').style.opacity = '0';
+  document.getElementById('remix-desc-0').style.transition = 'opacity 0.4s ease';
+  btn.style.transition = 'opacity 0.4s ease';
+
+  setTimeout(() => {
+    btn.style.display = 'none';
+    document.getElementById('remix-desc-0').style.display = 'none';
+
+    // Step 1: word transforms — "sh" → "er", add "cen"
+    const sh   = document.getElementById('word-right-sh');
+    const er   = document.getElementById('word-right-er');
+    const cen  = document.getElementById('word-left-cen');
+    const bigI = document.getElementById('big-i');
+
+    sh.classList.add('hide');
+    setTimeout(() => {
+      er.classList.add('show');
+      cen.classList.add('show');
+      // I turns teal
+      bigI.classList.add('teal');
+    }, 350);
+
+    // Step 2: PLURAL crossbar fades in simultaneously
+    setTimeout(() => {
+      document.getElementById('t-crossbar-row').classList.add('show');
+    }, 800);
+
+    // Step 3: hold the T — then fade everything out
+    setTimeout(() => {
+      bigI.classList.add('fade');
+      document.getElementById('t-crossbar-row').style.transition = 'opacity 0.7s ease';
+      document.getElementById('t-crossbar-row').style.opacity = '0';
+      // fade out word parts
+      document.getElementById('word-left-self').style.opacity = '0';
+      document.getElementById('word-left-self').style.transition = 'opacity 0.6s ease';
+      cen.style.opacity = '0';
+      cen.style.transition = 'opacity 0.6s ease';
+      er.style.opacity = '0';
+      er.style.transition = 'opacity 0.6s ease';
+    }, 2400);
+
+    // Step 4: switch to Phase 2
+    setTimeout(() => {
+      document.getElementById('remix-p0').classList.remove('active');
+      document.getElementById('remix-p2').classList.add('active');
+
+      // All PLURAL items show together
+      ['pf-P','pf-L','pf-U','pf-R','pf-A','pf-L2'].forEach(id => {
+        document.getElementById(id).classList.add('show');
+      });
+
+      // Statement and desc after letters settle
+      setTimeout(() => {
+        document.getElementById('remix-statement').classList.add('show');
+        document.getElementById('remix-desc-final').classList.add('show');
+      }, 700);
+
+    }, 3300);
+
+  }, 450);
 }
 
 

@@ -209,35 +209,35 @@ a:focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:4
 .flow-arrow{font-size:16px;color:var(--teal);padding:0 6px;flex-shrink:0;opacity:0.5}
 
 /* ── R.A.P. REMIX SECTION ── */
-.remix-sec{padding:3.5rem 3.5rem;background:linear-gradient(135deg,#f0faf2 0%,#fffdf0 100%);text-align:center;display:flex;align-items:center;justify-content:center;min-height:460px}
+.remix-sec{padding:3.5rem 3.5rem;background:linear-gradient(135deg,#f0faf2 0%,#fffdf0 100%);text-align:center;display:flex;align-items:center;justify-content:center;min-height:500px}
 .remix-eyebrow{font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);margin-bottom:1.5rem}
-.remix-phase{display:none;width:100%;animation:aFadeUp 0.45s ease}
+.remix-phase{display:none;width:100%}
 .remix-phase.active{display:block}
-
-/* Phase 0 — selfIsh */
-.selfish-word-row{display:flex;align-items:baseline;justify-content:center;line-height:1;margin-bottom:1rem}
-.selfish-side{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(28px,5vw,52px);font-weight:400;color:#bbb;line-height:1}
-.selfish-big-i{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(90px,16vw,150px);font-weight:700;color:#c0392b;line-height:0.88;display:inline-block;transition:opacity 0.5s ease}
-.selfish-big-i.fade{opacity:0}
-.remix-word-desc{font-size:clamp(13px,1.7vw,14px);color:var(--muted);line-height:1.85;margin-bottom:1.75rem;transition:opacity 0.4s ease}
-.remix-btn{background:var(--teal);color:#fff;border:none;padding:0.9rem 2.25rem;border-radius:30px;font-family:'Jost',sans-serif;font-size:13px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;transition:background 0.2s,transform 0.2s}
+.p0-plural-space{height:clamp(50px,9vw,88px);display:flex;align-items:flex-end;justify-content:center;margin-bottom:0}
+.p0-plural-row{display:flex;justify-content:center;align-items:flex-end;gap:0;opacity:0;transition:opacity 0.7s ease;line-height:1}
+.p0-plural-row.show{opacity:1}
+.p0-pl{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(38px,6.5vw,68px);font-weight:700;color:var(--teal);line-height:1;display:inline-block;letter-spacing:-0.01em}
+.p0-word{display:flex;align-items:baseline;justify-content:center;margin-bottom:1.25rem}
+.p0-left-wrap{display:inline-flex;align-items:baseline;transition:opacity 0.65s ease}
+.p0-self-txt{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(28px,5vw,52px);font-weight:400;color:#bbb;line-height:0.88}
+.p0-cen-txt{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(28px,5vw,52px);font-weight:400;color:#bbb;line-height:0.88;display:inline-block;overflow:hidden;max-width:0;opacity:0;white-space:nowrap;transition:max-width 0.5s ease,opacity 0.5s ease}
+.p0-cen-txt.show{max-width:120px;opacity:1}
+.p0-letter-wrap{position:relative;display:inline-block;line-height:0.88}
+.p0-i{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(90px,16vw,150px);font-weight:700;color:#c0392b;line-height:0.88;display:inline-block;transition:color 0.5s ease,opacity 0.6s ease}
+.p0-i.to-teal{color:var(--teal)}
+.p0-i.fade-out{opacity:0}
+.p0-t-overlay{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(90px,16vw,150px);font-weight:700;color:var(--teal);line-height:0.88;position:absolute;top:0;left:0;opacity:0;transition:opacity 0.6s ease,text-shadow 0.5s ease,transform 0.5s ease;text-shadow:0 0 24px rgba(43,158,179,0.15);transform:scale(1);white-space:nowrap}
+.p0-t-overlay.show{opacity:1}
+.p0-t-overlay.loaded{text-shadow:0 0 50px rgba(43,158,179,0.6),0 0 90px rgba(43,158,179,0.2);transform:scale(1.05)}
+.p0-t-overlay.fade-out{opacity:0!important;transition:opacity 0.9s ease!important}
+.p0-right-wrap{position:relative;display:inline-block;line-height:0.88;transition:opacity 0.65s ease}
+.p0-sh-txt{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(28px,5vw,52px);font-weight:400;color:#bbb;line-height:0.88;display:inline-block;transition:opacity 0.4s ease}
+.p0-sh-txt.fade-out{opacity:0}
+.p0-er-txt{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(28px,5vw,52px);font-weight:400;color:#bbb;line-height:0.88;position:absolute;left:0;top:0;opacity:0;transition:opacity 0.4s ease;white-space:nowrap}
+.p0-er-txt.show{opacity:1}
+.p0-desc{font-size:clamp(13px,1.7vw,14px);color:var(--muted);line-height:1.85;margin-bottom:1.75rem;transition:opacity 0.4s ease}
+.remix-btn{background:var(--teal);color:#fff;border:none;padding:0.9rem 2.25rem;border-radius:30px;font-family:'Jost',sans-serif;font-size:13px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;transition:background 0.2s,transform 0.2s,opacity 0.4s ease}
 .remix-btn:hover{background:var(--dark);transform:translateY(-2px)}
-
-/* Phase 1 — T formation with graphic bar */
-.t-stage{display:flex;flex-direction:column;align-items:center;margin-bottom:1.5rem}
-.t-crossbar-row{display:flex;justify-content:center;align-items:flex-end;gap:0;opacity:0;transition:opacity 0.7s ease;margin-bottom:0;line-height:1}
-.t-crossbar-row.show{opacity:1}
-.tc-l{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(80px,14vw,148px);font-weight:700;color:var(--teal);line-height:1;display:inline-block;letter-spacing:-0.02em}
-/* bar row: selfcen | bar | er all inline at same height */
-.t-bar-wrap{display:flex;align-items:center;justify-content:center;gap:0;width:100%;margin-top:0}
-.t-bar{width:clamp(14px,2.2vw,22px);height:clamp(80px,14vw,140px);background:var(--teal);border-radius:0 0 4px 4px;opacity:0;transition:opacity 0.5s ease;box-shadow:0 4px 24px rgba(43,158,179,0.35);flex-shrink:0}
-.t-bar.show{opacity:1}
-.tw-left,.tw-right{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(28px,5.5vw,60px);font-weight:400;color:#bbb;line-height:1;opacity:0;transition:opacity 0.5s ease;white-space:nowrap}
-.tw-left{margin-right:clamp(12px,2vw,24px)}
-.tw-right{margin-left:clamp(12px,2vw,24px)}
-.tw-left.show,.tw-right.show{opacity:1}
-
-/* Phase 2 — PLURAL expanded */
 .plural-eyebrow-line{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(15px,2.2vw,18px);font-style:italic;color:var(--dark);margin-bottom:1.75rem;opacity:0;transition:opacity 0.6s ease}
 .plural-eyebrow-line.show{opacity:1}
 .plural-full{display:flex;justify-content:space-between;align-items:flex-start;width:100%;margin-bottom:2rem}
@@ -248,9 +248,16 @@ a:focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:4
 .pf-item.show .pf-meaning{opacity:1}
 .remix-statement{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(15px,2.3vw,19px);font-weight:600;color:var(--dark);line-height:1.55;max-width:520px;margin:0 auto 0.75rem;font-style:italic;opacity:0;transition:opacity 0.7s ease}
 .remix-statement.show{opacity:1}
-.remix-closing{font-size:clamp(13px,1.8vw,15px);color:var(--body);line-height:1.8;max-width:480px;margin:0 auto;opacity:0;transition:opacity 0.7s ease 0.25s}
+.remix-closing{font-size:clamp(13px,1.8vw,15px);color:var(--body);line-height:1.8;max-width:480px;margin:0 auto 1.75rem;opacity:0;transition:opacity 0.7s ease 0.25s}
 .remix-closing.show{opacity:1}
 .remix-closing strong{color:var(--teal);font-weight:600}
+.rtb-btn{background:transparent;color:var(--teal);border:1.5px solid var(--teal);padding:0.75rem 2rem;border-radius:30px;font-family:'Jost',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;cursor:pointer;opacity:0;transition:opacity 0.6s ease 0.4s,background 0.2s,color 0.2s,transform 0.2s}
+.rtb-btn.show{opacity:1}
+.rtb-btn:hover{background:var(--teal);color:#fff;transform:translateY(-2px)}
+
+/* ── HEADER VIDEO ── */
+.hd-video-wrap{margin:1.75rem 0 1.5rem;display:flex;justify-content:center}
+.hd-video{width:100%;max-width:560px;border-radius:12px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.08);display:block}
 
 /* ── FOOTER ── */
 .footer{padding:1.5rem 3.5rem;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;background:#fafaf8}
@@ -287,6 +294,12 @@ a:focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:4
       <p class="brand-line">AH-HA Coaching, LLC</p>
       <p class="tagline cg">A thoughtful, sequenced approach to<br>awareness, choice, and change</p>
     </div>
+  </div>
+
+  <div class="hd-video-wrap fade-in d1">
+    <video class="hd-video" autoplay loop muted playsinline>
+      <source src="r3_intro.mp4" type="video/mp4">
+    </video>
   </div>
 
   <div class="hd-premise fade-in d1">
@@ -560,42 +573,46 @@ a:focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:4
 <!-- R.A.P. REMIX — selfIsh → selfcenTer → PLURAL -->
 <div class="remix-sec">
 
-  <!-- Phase 0: selfIsh -->
+  <!-- PHASE 0 — entire transformation lives here, no phase switch until Phase 2 -->
   <div class="remix-phase active" id="remix-p0">
     <p class="remix-eyebrow">The shift R³ produces</p>
-    <div class="selfish-word-row">
-      <span class="selfish-side">self</span><span class="selfish-big-i" id="selfish-big-i">I</span><span class="selfish-side">sh</span>
+
+    <!-- Reserved space: PLURAL fades in here above the word -->
+    <div class="p0-plural-space">
+      <div class="p0-plural-row" id="p0-plural-row">
+        <span class="p0-pl">P</span>
+        <span class="p0-pl">L</span>
+        <span class="p0-pl">U</span>
+        <span class="p0-pl">R</span>
+        <span class="p0-pl">A</span>
+        <span class="p0-pl">L</span>
+      </div>
     </div>
-    <div class="remix-word-desc" id="remix-desc-0">
+
+    <!-- Word: self[cen] + [I/T] + [sh/er] — all transforms happen here -->
+    <div class="p0-word">
+      <span class="p0-left-wrap" id="p0-left-wrap">
+        <span class="p0-self-txt">self</span>
+        <span class="p0-cen-txt" id="p0-cen">cen</span>
+      </span>
+      <span class="p0-letter-wrap">
+        <span class="p0-i" id="p0-i">I</span>
+        <span class="p0-t-overlay" id="p0-t">T</span>
+      </span>
+      <span class="p0-right-wrap" id="p0-right-wrap">
+        <span class="p0-sh-txt" id="p0-sh">sh</span>
+        <span class="p0-er-txt" id="p0-er">er</span>
+      </span>
+    </div>
+
+    <div class="p0-desc" id="p0-desc">
       <p>Singular focus. Immediate. Automatic.</p>
       <p>Driven by impulse rather than awareness.</p>
     </div>
     <button class="remix-btn" id="remix-btn" onclick="startRemix()">R.A.P. Remix</button>
   </div>
 
-  <!-- Phase 1: T formation — graphic bar + PLURAL crossbar -->
-  <div class="remix-phase" id="remix-p1">
-    <p class="remix-eyebrow">The shift R³ produces</p>
-    <div class="t-stage">
-      <!-- PLURAL = crossbar -->
-      <div class="t-crossbar-row" id="t-crossbar-row">
-        <span class="tc-l">P</span>
-        <span class="tc-l">L</span>
-        <span class="tc-l">U</span>
-        <span class="tc-l">R</span>
-        <span class="tc-l">A</span>
-        <span class="tc-l">L</span>
-      </div>
-      <!-- selfcen | bar | er as one horizontal row -->
-      <div class="t-bar-wrap">
-        <span class="tw-left" id="tw-left">selfcen</span>
-        <div class="t-bar" id="t-bar"></div>
-        <span class="tw-right" id="tw-right">er</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- Phase 2: PLURAL expanded full width -->
+  <!-- PHASE 2 — only loaded after T has fully faded -->
   <div class="remix-phase" id="remix-p2">
     <p class="plural-eyebrow-line cg" id="plural-eyebrow-line">Whole enough to grow. Present enough to notice.</p>
     <div class="plural-full">
@@ -608,9 +625,12 @@ a:focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:4
     </div>
     <p class="remix-statement cg" id="remix-statement">This is what you're building toward.<br>A life where you are enough — and still becoming.</p>
     <p class="remix-closing" id="remix-closing"><strong>The R³ Model is the path. PLURAL is the life on the other side.</strong></p>
+    <button class="rtb-btn" id="rtb-btn" onclick="resetRemix()">Run That Back</button>
   </div>
 
 </div>
+
+<!-- FOOTER -->
 
 <!-- FOOTER -->
 <div class="footer">
@@ -789,90 +809,101 @@ function resetAssessment() {
 
 
 /* ══════════════════════════════════════════════
-   R.A.P. REMIX — Option B animation sequence
-   Phase 0: selfIsh — big I, word, desc, button
-   Phase 1: T formation — graphic bar + PLURAL crossbar
-            + selfcenTer word flanking the bar
-   Phase 2: PLURAL full width + meanings + closing copy
+   R.A.P. REMIX — no phase jump, all in Phase 0
    ══════════════════════════════════════════════ */
 function startRemix() {
   const btn  = document.getElementById('remix-btn');
-  const desc = document.getElementById('remix-desc-0');
-  const bigI = document.getElementById('selfish-big-i');
+  const desc = document.getElementById('p0-desc');
+  const bigI = document.getElementById('p0-i');
+  const bigT = document.getElementById('p0-t');
 
-  // Disable button
   btn.style.pointerEvents = 'none';
-  btn.style.opacity = '0.4';
-  btn.style.transition = 'opacity 0.4s ease';
-  desc.style.transition = 'opacity 0.4s ease';
+  btn.style.opacity = '0.3';
   desc.style.opacity = '0';
-  bigI.classList.add('fade');
 
-  setTimeout(() => {
-    // Switch to Phase 1
+  // I shifts red → teal
+  setTimeout(function() { bigI.classList.add('to-teal'); }, 300);
+
+  // T fades in over I (same pixel position)
+  setTimeout(function() { bigT.classList.add('show'); }, 700);
+
+  // I fades out — only T visible
+  setTimeout(function() { bigI.classList.add('fade-out'); }, 1100);
+
+  // sh → er swap
+  setTimeout(function() {
+    document.getElementById('p0-sh').classList.add('fade-out');
+    document.getElementById('p0-er').classList.add('show');
+  }, 1300);
+
+  // cen slides in — selfcenTer complete
+  setTimeout(function() { document.getElementById('p0-cen').classList.add('show'); }, 1500);
+
+  // PLURAL fades in above as crossbar
+  setTimeout(function() { document.getElementById('p0-plural-row').classList.add('show'); }, 2200);
+
+  // T glows — holding PLURAL
+  setTimeout(function() { bigT.classList.add('loaded'); }, 2700);
+
+  // selfcen (left) + er (right) fade out — T holds PLURAL alone
+  setTimeout(function() {
+    document.getElementById('p0-left-wrap').style.opacity = '0';
+    document.getElementById('p0-right-wrap').style.opacity = '0';
+  }, 5100);
+
+  // T fades out — PLURAL freed
+  setTimeout(function() { bigT.classList.add('fade-out'); }, 6300);
+
+  // Switch to Phase 2
+  setTimeout(function() {
     document.getElementById('remix-p0').classList.remove('active');
-    document.getElementById('remix-p1').classList.add('active');
+    document.getElementById('remix-p2').classList.add('active');
 
-    // Graphic bar fades in
-    setTimeout(() => {
-      document.getElementById('t-bar').classList.add('show');
-    }, 200);
-
-    // selfcenTer word flanks appear
-    setTimeout(() => {
-      document.getElementById('tw-left').classList.add('show');
-      document.getElementById('tw-right').classList.add('show');
+    setTimeout(function() { document.getElementById('plural-eyebrow-line').classList.add('show'); }, 150);
+    setTimeout(function() {
+      ['pf-P','pf-L','pf-U','pf-R','pf-A','pf-L2'].forEach(function(id) {
+        document.getElementById(id).classList.add('show');
+      });
     }, 500);
+    setTimeout(function() {
+      document.getElementById('remix-statement').classList.add('show');
+      document.getElementById('remix-closing').classList.add('show');
+    }, 1200);
+    setTimeout(function() { document.getElementById('rtb-btn').classList.add('show'); }, 1800);
+  }, 7400);
+}
 
-    // PLURAL crossbar fades in simultaneously
-    setTimeout(() => {
-      document.getElementById('t-crossbar-row').classList.add('show');
-    }, 900);
+function resetRemix() {
+  ['pf-P','pf-L','pf-U','pf-R','pf-A','pf-L2'].forEach(function(id) {
+    document.getElementById(id).classList.remove('show');
+  });
+  document.getElementById('plural-eyebrow-line').classList.remove('show');
+  document.getElementById('remix-statement').classList.remove('show');
+  document.getElementById('remix-closing').classList.remove('show');
+  document.getElementById('rtb-btn').classList.remove('show');
 
-    // Hold the T moment — then transition to Phase 2
-    setTimeout(() => {
-      // Fade out Phase 1 elements
-      document.getElementById('t-bar').style.transition = 'opacity 0.7s ease';
-      document.getElementById('t-bar').style.opacity = '0';
-      document.getElementById('t-crossbar-row').style.transition = 'opacity 0.7s ease';
-      document.getElementById('t-crossbar-row').style.opacity = '0';
-      document.getElementById('tw-left').style.transition = 'opacity 0.6s ease';
-      document.getElementById('tw-left').style.opacity = '0';
-      document.getElementById('tw-right').style.transition = 'opacity 0.6s ease';
-      document.getElementById('tw-right').style.opacity = '0';
+  var bigI = document.getElementById('p0-i');
+  var bigT = document.getElementById('p0-t');
+  bigI.classList.remove('to-teal','fade-out');
+  bigT.classList.remove('show','loaded','fade-out');
+  document.getElementById('p0-sh').classList.remove('fade-out');
+  document.getElementById('p0-er').classList.remove('show');
+  document.getElementById('p0-cen').classList.remove('show');
+  document.getElementById('p0-plural-row').classList.remove('show');
+  document.getElementById('p0-left-wrap').style.opacity = '';
+  document.getElementById('p0-right-wrap').style.opacity = '';
+  document.getElementById('p0-desc').style.opacity = '1';
+  var btn = document.getElementById('remix-btn');
+  btn.style.opacity = '1';
+  btn.style.pointerEvents = 'auto';
 
-      // Switch to Phase 2
-      setTimeout(() => {
-        document.getElementById('remix-p1').classList.remove('active');
-        document.getElementById('remix-p2').classList.add('active');
-
-        // Eyebrow fades in first
-        setTimeout(() => {
-          document.getElementById('plural-eyebrow-line').classList.add('show');
-        }, 100);
-
-        // All PLURAL items expand simultaneously
-        setTimeout(() => {
-          ['pf-P','pf-L','pf-U','pf-R','pf-A','pf-L2'].forEach(id => {
-            document.getElementById(id).classList.add('show');
-          });
-        }, 500);
-
-        // Closing copy after letters settle
-        setTimeout(() => {
-          document.getElementById('remix-statement').classList.add('show');
-          document.getElementById('remix-closing').classList.add('show');
-        }, 1200);
-
-      }, 700);
-
-    }, 2800);
-
-  }, 450);
+  document.getElementById('remix-p2').classList.remove('active');
+  document.getElementById('remix-p0').classList.add('active');
 }
 
 
 /* ══════════════════════════════════════════════
+   ORIGINAL — RAP Accordion (unchanged)/* ══════════════════════════════════════════════
    ORIGINAL — RAP Accordion (unchanged)
    ══════════════════════════════════════════════ */
 function toggleRap(el, id) {

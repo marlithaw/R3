@@ -42,13 +42,16 @@ body{font-family:'Jost',sans-serif;background:#f0ede8;color:var(--body);min-heig
 .hd{padding:3rem 3.5rem 2.5rem;position:relative;overflow:hidden;border-bottom:1px solid var(--border)}
 .hd-gradient-bar{height:5px;background:linear-gradient(to right,var(--blue),var(--green-bright),var(--gold));position:absolute;top:0;left:0;right:0}
 .hd-top{display:flex;align-items:flex-start;justify-content:space-between;gap:2rem;margin-bottom:2rem;flex-wrap:wrap}
+.hd-intro-row{display:flex;align-items:flex-start;gap:2rem;margin-bottom:1.75rem;flex-wrap:wrap}
+.hd-intro-text{flex:1;min-width:260px}
+.hd-intro-video{flex:0 0 auto;width:clamp(240px,40%,340px)}
 .hd-identity{display:flex;align-items:center;gap:1.25rem}
 .r3-mark{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(88px,12vw,130px);font-weight:700;line-height:0.85;letter-spacing:-4px;color:var(--teal)}
 .logo-img{width:clamp(150px,18vw,200px);height:auto;object-fit:contain;margin-top:8px}
 .hd-meta{text-align:right;padding-top:6px}
 .brand-line{font-size:11px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
 .tagline{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(15px,2.2vw,19px);font-style:italic;color:var(--teal);font-weight:600}
-.hd-premise{margin-bottom:1.75rem}
+.hd-premise{margin-bottom:0}
 .premise-pull{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(22px,3.2vw,30px);font-weight:600;color:var(--dark);line-height:1.4;margin-bottom:1.1rem}
 .premise-pull em{font-style:italic;color:var(--teal)}
 .premise-body{font-size:clamp(14px,1.8vw,16px);font-weight:300;color:var(--muted);line-height:2;max-width:760px}
@@ -256,8 +259,8 @@ a:focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:4
 .rtb-btn:hover{background:var(--teal);color:#fff;transform:translateY(-2px)}
 
 /* ── HEADER VIDEO ── */
-.hd-video-wrap{margin:1.75rem 0 1.5rem;display:flex;justify-content:center}
-.hd-video{width:100%;max-width:560px;border-radius:12px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.08);display:block}
+.hd-video-wrap{display:flex;justify-content:center}
+.hd-video{width:100%;border-radius:12px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.08);display:block}
 
 /* ── FOOTER ── */
 .footer{padding:1.5rem 3.5rem;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;background:#fafaf8}
@@ -273,6 +276,8 @@ a:focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:4
   .posture-defs{grid-template-columns:1fr}
   .hd-top{flex-direction:column}
   .hd-meta{text-align:left}
+  .hd-intro-row{flex-direction:column}
+  .hd-intro-video{width:100%}
   .flow-row{flex-direction:column;gap:8px}
   .flow-arrow{transform:rotate(90deg);font-size:14px}
   .flow-node{padding:8px 16px}
@@ -296,16 +301,21 @@ a:focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:4
     </div>
   </div>
 
-  <div class="hd-video-wrap fade-in d1">
-    <video class="hd-video" autoplay loop muted playsinline>
-      <source src="r3_intro.mp4" type="video/mp4">
-    </video>
-  </div>
-
-  <div class="hd-premise fade-in d1">
+  <div class="hd-intro-row fade-in d1">
+    <div class="hd-intro-text">
+      <div class="hd-premise">
     <p class="premise-pull cg">Do it on <em style="color:var(--teal);font-style:italic">purpose</em>. Not perfectly —<br><em style="color:var(--teal);font-style:italic">purposefully</em>.</p>
     <p class="premise-body" style="font-size:clamp(13px,1.7vw,15px);font-style:italic;font-weight:400;color:var(--muted);margin-bottom:1.25rem">A framework for emotional regulation through Reflection, Resistance, and Revelation.</p>
     <p class="premise-body">In high-stress, emotionally triggering situations, most people react from habit, conditioning, or survival patterns — not from clarity. The R³ Model develops your capacity to read what is happening beneath your own surface in the present moment and break free from automaticity.</p>
+      </div>
+    </div>
+    <div class="hd-intro-video">
+      <div class="hd-video-wrap">
+        <video class="hd-video" autoplay loop muted playsinline>
+          <source src="r3_intro.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
   </div>
 
   <a class="hd-rap fade-in d2" href="r3_science_map.html" title="Explore the peer-reviewed science behind every element of the R³ Model">

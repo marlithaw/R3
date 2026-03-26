@@ -129,6 +129,13 @@ a:focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:4
 .scenario-intro-label{font-size:12px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#666;margin-bottom:0.6rem}
 .scenario-intro-head{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(22px,2.8vw,30px);font-weight:700;color:var(--dark);line-height:1.3;margin-bottom:0.5rem}
 .scenario-intro-body{font-size:clamp(15px,1.7vw,17px);color:#555;line-height:1.8}
+/* Category buttons */
+.sc-categories{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:1.75rem}
+.sc-cat-btn{font-family:'Jost',sans-serif;font-size:14px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:0.75rem 1.5rem;border-radius:30px;border:1.5px solid var(--border);background:#fff;color:#666;cursor:pointer;transition:all 0.2s ease;white-space:nowrap}
+.sc-cat-btn:hover{border-color:var(--teal);color:var(--teal)}
+.sc-cat-btn.active{background:var(--teal);border-color:var(--teal);color:#fff}
+/* Select prompt */
+.sc-prompt{text-align:center;padding:2.5rem 1rem;color:#555;font-style:italic;font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(17px,2vw,20px)}
 .scenario-card{background:var(--light);border-radius:12px;padding:2rem 2.25rem;border:1px solid var(--border)}
 .scenario-nav{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;padding-bottom:1.25rem;border-bottom:1px solid var(--border)}
 .scenario-nav button{background:#fff;border:1px solid var(--border);color:var(--dark);width:36px;height:36px;border-radius:50%;font-size:1rem;cursor:pointer;transition:var(--transition,all 0.3s ease);display:flex;align-items:center;justify-content:center;flex-shrink:0}
@@ -365,11 +372,46 @@ a:focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:4
   </a>
 </div>
 
+<!-- SCENARIO SECTION — Which world feels most like yours? -->
+<div class="scenario-sec fade-in">
+  <div class="scenario-intro">
+    <p class="scenario-intro-label">The R³ Model in Action</p>
+    <p class="scenario-intro-head cg">Which world feels most like yours right now?</p>
+    <p class="scenario-intro-body">Choose your context and see how the R³ Model shifts the same high-stress moment from automatic reaction to conscious choice.</p>
+  </div>
+
+  <div class="sc-categories fade-in d1">
+    <button class="sc-cat-btn" onclick="selectCategory('classroom')">In the Classroom</button>
+    <button class="sc-cat-btn" onclick="selectCategory('caregiving')">In Caregiving</button>
+    <button class="sc-cat-btn" onclick="selectCategory('workplace')">In the Workplace</button>
+    <button class="sc-cat-btn" onclick="selectCategory('relationships')">In Relationships</button>
+  </div>
+
+  <div id="sc-prompt-wrap">
+    <p class="sc-prompt">Select a category above to see scenarios that speak to your life.</p>
+  </div>
+
+  <div class="scenario-card fade-in d1" id="scenario-card" style="display:none">
+    <div class="scenario-nav">
+      <button onclick="prevScenario()" aria-label="Previous scenario">&#8592;</button>
+      <span class="scenario-counter" id="sc-counter">Scenario 1 of 5</span>
+      <button onclick="nextScenario()" aria-label="Next scenario">&#8594;</button>
+    </div>
+    <div class="scenario-trigger" id="sc-trigger"></div>
+    <div class="sc-toggle">
+      <button class="sc-btn active" id="sc-btn-conditioned" onclick="switchSc('conditioned')">Without R³&nbsp; <small style="font-weight:400;opacity:0.75">(Conditioned)</small></button>
+      <button class="sc-btn"        id="sc-btn-conscious"   onclick="switchSc('conscious')">With R³&nbsp; <small style="font-weight:400;opacity:0.75">(Conscious)</small></button>
+    </div>
+    <div class="sc-content conditioned active" id="sc-conditioned"></div>
+    <div class="sc-content conscious"          id="sc-conscious"></div>
+  </div>
+</div>
+
 <div class="divider"></div>
 
 <!-- ══════════════════════════════════════════════
      ADDITION 2 & 3 — Assessment + Entry Point Results
-     Positioned between header and phases.
+     Positioned between scenario and phases.
      Styled in the site's existing warm palette.
      ══════════════════════════════════════════════ -->
 <div class="assessment-sec fade-in" id="assessment">
@@ -459,35 +501,6 @@ a:focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:4
 
   </div><!-- end .assessment-card -->
 </div><!-- end .assessment-sec -->
-
-<div class="divider"></div>
-
-<!-- SCENARIO SECTION — The Model in Action -->
-<div class="scenario-sec fade-in">
-  <div class="scenario-intro fade-in">
-    <p class="scenario-intro-label">The R³ Model in Action</p>
-    <p class="scenario-intro-head cg">Do these moments look familiar?</p>
-    <p class="scenario-intro-body">See how the R³ Model shifts the same high-stress situation from automatic reaction to conscious choice — one phase at a time.</p>
-  </div>
-
-  <div class="scenario-card fade-in d1">
-    <div class="scenario-nav">
-      <button onclick="prevScenario()" aria-label="Previous scenario">&#8592;</button>
-      <span class="scenario-counter" id="sc-counter">Scenario 1 of 10</span>
-      <button onclick="nextScenario()" aria-label="Next scenario">&#8594;</button>
-    </div>
-
-    <div class="scenario-trigger" id="sc-trigger"></div>
-
-    <div class="sc-toggle">
-      <button class="sc-btn active" id="sc-btn-conditioned" onclick="switchSc('conditioned')">Without R³&nbsp; <small style="font-weight:400;opacity:0.75">(Conditioned)</small></button>
-      <button class="sc-btn"        id="sc-btn-conscious"   onclick="switchSc('conscious')">With R³&nbsp; <small style="font-weight:400;opacity:0.75">(Conscious)</small></button>
-    </div>
-
-    <div class="sc-content conditioned active" id="sc-conditioned"></div>
-    <div class="sc-content conscious"          id="sc-conscious"></div>
-  </div>
-</div>
 
 <div class="divider"></div>
 
@@ -691,11 +704,12 @@ a:focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:4
 
 <script>
 /* ══════════════════════════════════════════════
-   SCENARIO CAROUSEL — 10 educator scenarios
+   SCENARIO — 4 categories, 5 scenarios each
    ══════════════════════════════════════════════ */
-const scenarios = [
+const categoryScenarios = {
+classroom: [
   {
-    trigger: '"A student yells aggressively in the middle of a quiet lesson."',
+    trigger: '"A student erupts in anger, shouting across the room during independent work."',
     conditioned: `<p><strong>The Automatic Reaction:</strong> Your heart rate spikes. Feeling disrespected and already tired from the day, you immediately yell back or issue a harsh punishment.</p><p><strong>The Result:</strong> The student escalates. Instructional time is lost. The relational foundation is fractured, and your nervous system remains dysregulated for the rest of the period.</p>`,
     conscious: `<p><strong>Reflection:</strong> <span class="r3-label">Aware:</span> You acknowledge you brought exhaustion into this period. <span class="r3-label">Attentive:</span> You notice your jaw tighten and your breathing become shallow.</p><p><strong>Resistance:</strong> <span class="r3-label">Pattern Recognition:</span> You recognize the urge to yell back as a conditioned Press pattern. <span class="r3-label">Alignment Check:</span> Does yelling align with your value of connection? No. <span class="r3-label">Consequence Awareness:</span> Escalating will fracture the relationship. You interrupt the urge.</p><p><strong>Revelation:</strong> You realize the student is acting out of embarrassment, not malice. You state in a neutral tone, "The expectation is that we are silent during independent work," turn your body slightly away, and resume teaching.</p>`
   },
@@ -744,40 +758,66 @@ const scenarios = [
     conditioned: `<p><strong>The Automatic Reaction:</strong> You feel personally betrayed. You snatch the test away dramatically and glare at the student for the rest of the period.</p><p><strong>The Result:</strong> The student is publicly shamed. Trust is completely broken, and the conversation that follows is defensive rather than restorative.</p>`,
     conscious: `<p><strong>Reflection:</strong> <span class="r3-label">Aware:</span> You acknowledge you are taking this as a personal reflection of your teaching. <span class="r3-label">Attentive:</span> You notice a sharp spike in your heart rate and your eyes widening.</p><p><strong>Resistance:</strong> <span class="r3-label">Pattern Recognition:</span> You spot the Press pattern to make a public spectacle. <span class="r3-label">Alignment Check:</span> Does public shaming align with restorative practices? No. <span class="r3-label">Consequence Awareness:</span> A dramatic confrontation breaks trust completely. You take a breath.</p><p><strong>Revelation:</strong> Cheating is often driven by anxiety, not malice. You walk past their desk, quietly remove the test, and place a sticky note: "Read your independent book. We will talk privately after the bell." You continue proctoring neutrally.</p>`
   }
-];
 
+  ],
+  caregiving: [],
+  workplace: [],
+  relationships: []
+};
+
+let currentCategory = null;
 let scIndex = 0;
 
+function selectCategory(cat) {
+  currentCategory = cat;
+  scIndex = 0;
+  document.querySelectorAll('.sc-cat-btn').forEach(function(btn) {
+    btn.classList.remove('active');
+  });
+  event.target.classList.add('active');
+  document.getElementById('sc-prompt-wrap').style.display = 'none';
+  var card = document.getElementById('scenario-card');
+  card.style.display = 'block';
+  card.style.animation = 'aFadeUp 0.4s ease';
+  renderScenario();
+  switchSc('conditioned');
+}
+
 function renderScenario() {
-  const s = scenarios[scIndex];
-  document.getElementById('sc-counter').textContent = `Scenario ${scIndex + 1} of ${scenarios.length}`;
+  if (!currentCategory) return;
+  var scenes = categoryScenarios[currentCategory];
+  if (!scenes || scenes.length === 0) return;
+  var s = scenes[scIndex];
+  document.getElementById('sc-counter').textContent = 'Scenario ' + (scIndex + 1) + ' of ' + scenes.length;
   document.getElementById('sc-trigger').textContent = s.trigger;
   document.getElementById('sc-conditioned').innerHTML = s.conditioned;
-  document.getElementById('sc-conscious').innerHTML   = s.conscious;
+  document.getElementById('sc-conscious').innerHTML = s.conscious;
 }
 
 function nextScenario() {
-  scIndex = (scIndex + 1) % scenarios.length;
+  if (!currentCategory) return;
+  var scenes = categoryScenarios[currentCategory];
+  scIndex = (scIndex + 1) % scenes.length;
   renderScenario();
   switchSc('conditioned');
 }
 
 function prevScenario() {
-  scIndex = (scIndex - 1 + scenarios.length) % scenarios.length;
+  if (!currentCategory) return;
+  var scenes = categoryScenarios[currentCategory];
+  scIndex = (scIndex - 1 + scenes.length) % scenes.length;
   renderScenario();
   switchSc('conditioned');
 }
 
 function switchSc(type) {
-  ['conditioned','conscious'].forEach(t => {
-    document.getElementById('sc-btn-' + t).classList.remove('active');
-    document.getElementById('sc-' + t).classList.remove('active');
-  });
+  document.getElementById('sc-btn-conditioned').classList.remove('active');
+  document.getElementById('sc-btn-conscious').classList.remove('active');
+  document.getElementById('sc-conditioned').classList.remove('active');
+  document.getElementById('sc-conscious').classList.remove('active');
   document.getElementById('sc-btn-' + type).classList.add('active');
   document.getElementById('sc-' + type).classList.add('active');
 }
-
-renderScenario();
 
 
 /* ══════════════════════════════════════════════

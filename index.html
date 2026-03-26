@@ -260,7 +260,7 @@ a:focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:4
 
 /* ── HEADER VIDEO ── */
 .hd-video-wrap{display:flex;justify-content:center}
-.hd-video{width:100%;border-radius:12px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.08);display:block}
+.hd-video{width:100%;border-radius:12px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.08);display:block;background:#f0ede8}
 
 /* ── FOOTER ── */
 .footer{padding:1.5rem 3.5rem;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;background:#fafaf8}
@@ -311,8 +311,9 @@ a:focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:4
     </div>
     <div class="hd-intro-video">
       <div class="hd-video-wrap">
-        <video class="hd-video" autoplay loop muted playsinline>
+        <video class="hd-video" autoplay loop muted playsinline preload="auto">
           <source src="r3_intro.mp4" type="video/mp4">
+          Your browser does not support the video tag.
         </video>
       </div>
     </div>

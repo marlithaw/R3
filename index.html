@@ -22,9 +22,9 @@ html{scroll-behavior:smooth}
   --border:#e8e6e0;
   --light:#f7f6f3;
 }
-body{font-family:'Jost',sans-serif;background:#f0ede8;color:var(--body);min-height:100vh;padding:2rem 1rem}
+body{font-family:'Jost',sans-serif;background:#f0ede8;color:var(--body);min-height:100vh;padding:0}
 ::selection{background:rgba(43,158,179,0.18);color:var(--dark)}
-.page{max-width:900px;margin:0 auto;background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 8px 60px rgba(0,0,0,0.10)}
+.page{max-width:100%;margin:0 auto;background:#fff;overflow:hidden}
 .cg{font-family:'Cormorant Garamond',Georgia,serif}
 
 /* ══════════════════════════════════════════════
@@ -37,6 +37,9 @@ body{font-family:'Jost',sans-serif;background:#f0ede8;color:var(--body);min-heig
 .fade-in.d2{transition-delay:0.24s}
 .fade-in.d3{transition-delay:0.36s}
 .fade-in.visible{opacity:1;transform:translateY(0)}
+
+/* ── CONTENT CONSTRAINT (full-width bg, readable content) ── */
+.hd,.sec,.sec-alt,.assessment-sec,.scenario-sec,.remix-sec,.footer{max-width:1100px;margin-left:auto;margin-right:auto}
 
 /* ── HEADER ── */
 .hd{padding:3rem 3.5rem 2.5rem;position:relative;overflow:hidden;border-bottom:1px solid var(--border)}
@@ -369,8 +372,8 @@ a:focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:4
      Positioned between header and phases.
      Styled in the site's existing warm palette.
      ══════════════════════════════════════════════ -->
-<div class="assessment-sec" id="assessment">
-  <div class="assessment-intro fade-in">
+<div class="assessment-sec fade-in" id="assessment">
+  <div class="assessment-intro">
     <p class="assessment-intro-label">Before you explore the framework</p>
     <p class="assessment-intro-head cg">Where are you right now?</p>
     <p class="assessment-intro-body">Take 60 seconds to find your entry point. Your answers shape how the R³ Model speaks directly to your experience.</p>
@@ -460,7 +463,7 @@ a:focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:4
 <div class="divider"></div>
 
 <!-- SCENARIO SECTION — The Model in Action -->
-<div class="scenario-sec">
+<div class="scenario-sec fade-in">
   <div class="scenario-intro fade-in">
     <p class="scenario-intro-label">The R³ Model in Action</p>
     <p class="scenario-intro-head cg">Do these moments look familiar?</p>
@@ -489,7 +492,7 @@ a:focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:4
 <div class="divider"></div>
 
 <!-- THREE PHASES -->
-<div class="sec" id="phases">
+<div class="sec fade-in" id="phases">
   <p class="eyebrow fade-in">The three phases</p>
   <div class="phases-grid fade-in d1">
     <div class="ph ph1">
@@ -516,7 +519,7 @@ a:focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:4
 <div class="divider"></div>
 
 <!-- RAP ARCHITECTURE -->
-<div class="sec-alt">
+<div class="sec-alt fade-in">
   <p class="eyebrow fade-in">How each phase moves — click any row to expand</p>
   <div class="rap-grid fade-in d1">
 
@@ -574,21 +577,21 @@ a:focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:4
 <div class="divider"></div>
 
 <!-- APPLICATION ACROSS CONTEXTS -->
-<div class="sec">
+<div class="sec fade-in">
   <p class="eyebrow fade-in">Application across contexts</p>
   <p class="fade-in d1" style="font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(16px,2.4vw,20px);font-weight:600;color:var(--dark);line-height:1.5;margin-bottom:2rem">The environment changes.<br><span style="color:var(--teal);font-style:italic">What the model targets does not.</span></p>
   <div class="ctx-grid fade-in d2">
-    <div class="ctx-card ctx1">
+    <div class="ctx-card ctx1 fade-in">
       <p class="ctx-label">Personal</p>
       <p class="ctx-punch">Without requiring the full origin story to be accessible.</p>
       <p class="ctx-body">For people navigating the aftermath of trauma, high stress moments do not always arrive clean. The nervous system carries the imprint of past harm — and present triggers can activate survival responses calibrated to that history, instead of what is actually in front of them. The R³ Model provides the process for interrupting those patterns, building the capacity to recognize what is firing in the present and choose a response grounded in current reality rather than accumulated harm.</p>
     </div>
-    <div class="ctx-card ctx2">
+    <div class="ctx-card ctx2 fade-in d1">
       <p class="ctx-label">Educator</p>
       <p class="ctx-punch">Your reaction travels across the room into students' bodies.</p>
       <p class="ctx-body">In the classroom, automatic responses to accumulated stress produce reactions disproportionate to the present moment — costing instructional time and eroding the relational foundation students need to learn. Educators are rarely given tools to understand and interrupt their own conditioned responses under pressure. The R³ Model builds the self-knowledge and regulation capacity that breaks that cycle — restoring intentional response and giving educators a concrete, repeatable process for navigating high stress moments with clarity rather than conditioning.</p>
     </div>
-    <div class="ctx-card ctx3">
+    <div class="ctx-card ctx3 fade-in d2">
       <p class="ctx-label">Culture Change</p>
       <p class="ctx-punch">This is not a wellness program. It is a precision intervention.</p>
       <p class="ctx-body">Organizational culture is not built by values statements or initiatives. It is built by what people do in high stress moments — and most of the time, what they do is automatic. The R³ Model targets the only place culture actually changes: the moment between trigger and response, inside the individuals who make up the organization. When people develop the capacity to interrupt automatic patterns and choose consciously, culture shifts from the inside out.</p>
@@ -599,7 +602,7 @@ a:focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:4
 <div class="divider"></div>
 
 <!-- FLOW CONNECTOR -->
-<div class="sec-alt" style="padding-top:2rem;padding-bottom:2rem;text-align:center">
+<div class="sec-alt fade-in" style="padding-top:2rem;padding-bottom:2rem;text-align:center">
   <p class="eyebrow fade-in" style="margin-bottom:0.5rem">What the R³ Model produces</p>
   <div class="flow-row fade-in d1">
     <div class="flow-node fn1"><span class="flow-label cg">Self-awareness</span></div>
@@ -615,7 +618,7 @@ a:focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:4
 <div class="divider"></div>
 
 <!-- R.A.P. REMIX — selfIsh → selfcenTer → PLURAL -->
-<div class="remix-sec">
+<div class="remix-sec fade-in">
 
   <!-- PHASE 0 — entire transformation lives here, no phase switch until Phase 2 -->
   <div class="remix-phase active" id="remix-p0">
